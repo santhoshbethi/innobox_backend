@@ -11,7 +11,6 @@ module.exports = function(app) {
   });
 
   app.get("/abcd", controller.abcd);
-
  
 
  

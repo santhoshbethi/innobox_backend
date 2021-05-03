@@ -34,6 +34,7 @@ app.get("/", (req, res) => {
 
 // routes	
 require('./app/routes/abcd.routes')(app);
+require('./app/routes/home.routes')(app);
 
 
 
