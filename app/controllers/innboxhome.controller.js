@@ -12,9 +12,10 @@ exports.menu= (req, res) => {
         res.status(500).send({ message: err.message });
       });
   };
-  exports.addmenu = (req, res) => {
+exports.addmenu = (req, res) => {
     menu.create({
-        itemName:req.body.name,    
+        itemName:req.body.menuname, 
+        refID:req.body.parent,   
 
 })
 .then(menu => {
@@ -25,3 +26,14 @@ exports.menu= (req, res) => {
         res.status(500).send({ message: err.message });
       });
   };
+exports.updatemenu=(req,res)=>{
+  menu.update({status:req.body.status},{where:{ID:req.body.id}
+  }).then(showhome => {
+
+    res.status(200).send({ message: showhome });
+    
+  })
+  .catch(err => {
+    res.status(500).send({ message: err.message });
+  });
+};

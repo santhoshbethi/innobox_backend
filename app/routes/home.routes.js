@@ -10,4 +10,5 @@ module.exports = function(app) {
     });
     app.get("/api/home/menu", homepage.menu);
     app.post("/api/home/addmenu", homepage.addmenu);
+    app.post("/api/home/updatemenu", homepage.updatemenu);
 };

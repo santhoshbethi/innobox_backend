@@ -1,7 +1,7 @@
 module.exports = {
   HOST: "localhost",
   USER: "root",
-  PASSWORD: "",
+  PASSWORD: "Innobox@2021",
   DB: "api",
   dialect: "mysql",
   pool: {

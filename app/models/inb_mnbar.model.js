@@ -14,7 +14,11 @@ module.exports = (sequelize, Sequelize) => {
 		refID:{
 				type:Sequelize.STRING,
 				comment:"Menu Bar Item ID Referrence"
-			}
+			},
+			status:{
+				type:Sequelize.INTEGER,
+				comment:"0 for inactive, 1 for active"
+			}		
   },
   {
 	   freezeTableName: true,
