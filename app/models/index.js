@@ -26,7 +26,7 @@ db.sequelize = sequelize;
 
 
 db.blgs = require("../models/inb_blgs.model.js")(sequelize, Sequelize);
-db.carrer = require("../models/inb_career.model.js")(sequelize, Sequelize);
+db.career = require("../models/inb_career.model.js")(sequelize, Sequelize);
 db.cntus = require("../models/inb_cntus.model.js")(sequelize, Sequelize);
 db.emptlk = require("../models/inb_emptlk.model.js")(sequelize, Sequelize);
 db.enqry = require("../models/inb_enqry.model.js")(sequelize, Sequelize);
