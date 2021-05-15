@@ -14,7 +14,7 @@ exports.career= (req, res) => {
   };
   
 exports.addcareer = (req, res) => {
-    menu.create({
+  career.create({
         jobTitle:req.body.title, 
         locationCountry:req.body.location,   
         experience:req.body.experience,   
@@ -32,7 +32,7 @@ exports.addcareer = (req, res) => {
       });
   };
 exports.updatecareer=(req,res)=>{
-  menu.update({status:req.body.status},{where:{ID:req.body.id}
+  career.update({status:req.body.status},{where:{ID:req.body.id}
   }).then(showhome => {
 
     res.status(200).send({ message: showhome });
