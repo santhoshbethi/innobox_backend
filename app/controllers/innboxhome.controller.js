@@ -37,4 +37,29 @@ exports.updatemenu=(req,res)=>{
   .catch(err => {
     res.status(500).send({ message: err.message });
   });
+  
+};
+exports.updatemenuname=(req,res)=>{
+  menu.update({itemName:req.body.menuname},{where:{ID:req.body.id}
+  }).then(showhome => {
+
+    res.status(200).send({ message: showhome });
+    
+  })
+  .catch(err => {
+    res.status(500).send({ message: err.message });
+  });
+  
+};
+exports.updatemenuparent=(req,res)=>{
+  menu.update({refID:req.body.parent},{where:{ID:req.body.id}
+  }).then(showhome => {
+
+    res.status(200).send({ message: showhome });
+    
+  })
+  .catch(err => {
+    res.status(500).send({ message: err.message });
+  });
+  
 };
