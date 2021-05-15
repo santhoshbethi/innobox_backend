@@ -20,7 +20,7 @@ exports.addmenu = (req, res) => {
 })
 .then(menu => {
 
-    res.send({ message: "Menu added successfully" });
+    res.send({ message: req });
   })
     .catch(err => {
         res.status(500).send({ message: err.message });
