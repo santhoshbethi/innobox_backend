@@ -16,6 +16,7 @@ exports.addmenu = (req, res) => {
     menu.create({
         itemName:req.body.menuname, 
         refID:req.body.parent,   
+        status:'0',
 
 })
 .then(menu => {
