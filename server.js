@@ -9,7 +9,7 @@ var corsOptions = {
 };
 
 app.use(cors(corsOptions));
-
+app.use(express.static('uploads'));
 // parse requests of content-type - application/json
 app.use(bodyParser.json());
 
