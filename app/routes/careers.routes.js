@@ -11,4 +11,5 @@ module.exports = function(app) {
     app.get("/api/home/careers", homepage.career);
     app.post("/api/home/addcareers", homepage.addcareer);
     app.post("/api/home/updatecareers", homepage.updatecareer);
+    app.post("/api/home/careerbyid", homepage.careerbyid);
 };
