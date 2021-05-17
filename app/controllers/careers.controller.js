@@ -16,7 +16,7 @@ exports.career= (req, res) => {
   };
   exports.careerbyid= (req, res) => {
     career.findOne({
-      where: {ID: req.body.id}, include: 'job'
+      where: {ID: req.body.id}, include: 'id'
 
     }).then(career => {
 
