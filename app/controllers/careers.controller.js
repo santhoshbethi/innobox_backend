@@ -56,11 +56,10 @@ exports.addcareer = (req, res) => {
 
 })
 .then(career => {
-  console.log(career);
+  console.log(career.ID);
   careerdesc.create({
-    
     description:req.body.description,
-jobId:career.get('id'),
+jobId:career.ID,
 
   }).then(menu => {
 
