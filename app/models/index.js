@@ -38,7 +38,7 @@ db.msg = require("../models/inb_msg.model.js")(sequelize, Sequelize);
 db.magcats = require("../models/inb_msgcats.model.js")(sequelize, Sequelize);
 db.tsmnals = require("../models/inb_tsmnals.model.js")(sequelize, Sequelize);
 
-db.career.hasMany(db.jbdscr,{foreignKey: 'jobID'});
+
 
 
 

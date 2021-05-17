@@ -16,14 +16,7 @@ exports.career= (req, res) => {
   };
   exports.careerbyid= (req, res) => {
     career.findOne({
-      
-
-
-        include: [{
-          model: careerdesc,
-          where: { jobID: db.Sequelize.col('career.ID') },
-          
-        }]
+      where: {ID: req.body.id}, include: 'job'
 
     }).then(career => {
 

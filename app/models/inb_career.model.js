@@ -1,3 +1,6 @@
+const inb_jbaptnsModel = require("./inb_jbaptns.model");
+const inb_jbdscrModel = require("./inb_jbdscr.model");
+
 module.exports = (sequelize, Sequelize) => {
 	const inb_career = sequelize.define("inb_career", {
     ID: {
@@ -38,7 +41,10 @@ module.exports = (sequelize, Sequelize) => {
   {
 	   freezeTableName: true,
 	   timestamps:false
-  });
+  })
+  inb_career.associate = function(models) {
+    inb_career.belongsTo(inb_jbdscr, {foreignKey: 'jobID', as: 'id'})
+  };
   return inb_career;
 };
  
