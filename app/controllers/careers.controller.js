@@ -30,6 +30,20 @@ exports.career= (req, res) => {
         res.status(500).send({ message: err.message });
       });
   };
+  exports.createemptlk= (req, res) => {
+    emptlk.create({
+      name:req.body.empname,
+      message:req.body.msg,
+     
+    }).then(emptlk => {
+
+        res.status(200).send({ message: emptlk });
+        
+      })
+      .catch(err => {
+        res.status(500).send({ message: err.message });
+      });
+  };
   exports.emptlk= (req, res) => {
     emptlk.findAll({
       
