@@ -6,39 +6,24 @@ module.exports = (sequelize, Sequelize) => {
 	  primaryKey: true
     },
 
-    	locationName:{
+    	Name:{
 			type: Sequelize.STRING,
-			comment:"Location Name"
+			comment:"Enquirer Name"
 		},
 		
-		locationCountry:{
+		email:{
 			type:Sequelize.STRING,
-			comment:"Location country"
+			comment:"Enquirer Email"
 		},
 
-		locationAddress:{
+		message:{
 			type:Sequelize.TEXT,
-			commet:"Location Address"
-			},
-			
-		locationLat:{
-				type:Sequelize.STRING,
-				comment:"Location Latitude"
-			},
-			locationLan:{
-				type:Sequelize.STRING,
-				comment:"Location Longitude"
-			},
-			phoneNumber:{
-				type:Sequelize.INTEGER,
-				comment:"Contact Number"
-			},
-			emailAddress :{
-				type:Sequelize.STRING,
-				comment:"Email Address"
+			commet:"Enquirer Message"
 			}
+			
 		
-  },{
+  },
+  {
 	   freezeTableName: true,
 	   timestamps:false
   });
