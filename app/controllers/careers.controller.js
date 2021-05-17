@@ -59,7 +59,7 @@ exports.addcareer = (req, res) => {
   console.log(career.ID);
   careerdesc.create({
     description:req.body.description,
-jobId:career.ID,
+jobID:career.ID,
 
   }).then(menu => {
 
