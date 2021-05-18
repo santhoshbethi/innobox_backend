@@ -109,6 +109,7 @@ exports.updatetestimonialsstatus=(req,res)=>{
 
 
 exports.hmpcontactus = (req, res) => {
+  console.log(req.body.name);
   contus.create({
       Name:req.body.name, 
       email:req.body.email,   
