@@ -1,7 +1,7 @@
 const db=require("../models");
 const tstmnls=db.tsmnals;
 const menu=db.mnbar;
-const contus=db.contus;
+const contus=db.cntus;
 exports.menu= (req, res) => {
     menu.findAll({
 
