@@ -21,6 +21,18 @@ exports.addaddress = (req, res) => {
         res.status(500).send({ message: err.message });
       });
   };
+  exports.getaddress= (req, res) => {
+    contactus.findAll({
+
+    }).then(showhome => {
+
+        res.status(200).send({ message: showhome });
+        
+      })
+      .catch(err => {
+        res.status(500).send({ message: err.message });
+      });
+  };
   exports.updateaddress=(req,res)=>{
       var Param=req.body.Key;
     contactus.update({param:req.body.value},{where:{ID:req.body.id}
