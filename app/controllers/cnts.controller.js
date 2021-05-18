@@ -3,13 +3,13 @@ const contactus=db.cntus;
 const msg=db.msg;
 exports.addaddress = (req, res) => {
     contactus.create({
-        locationName:locationName,
-        locationCountry:locationCountry,
-        locationAddress:locationAddress,
+        locationName:req.body.locationName,
+        locationCountry:req.body.locationCountry,
+        locationAddress:req.body.locationAddress,
         locationLat:"0",
         locationLan:"0",
-        phoneNumber:phoneNumber,
-        emailAddress:emailAddress,
+        phoneNumber:req.body.phoneNumber,
+        emailAddress:req.body.emailAddress,
 
 
 })
