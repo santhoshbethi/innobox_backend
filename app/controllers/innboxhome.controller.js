@@ -31,10 +31,11 @@ exports.addmenu = (req, res) => {
       });
   };
   exports.updatemenudata=(req,res)=>{
-    menu.update({status:req.body.status,itemName:req.body.menuname,status:req.body.status},{where:{ID:req.body.id}
-    }).then(showhome => {
+    
+    menu.update({refID:req.body.parent,itemName:req.body.menuname,status:req.body.status},{where:{ID:req.body.id}
+    }).then(menu => {
   
-      res.status(200).send({ message: showhome });
+      res.status(200).send({ message: req.body.menuname   });
       
     })
     .catch(err => {
