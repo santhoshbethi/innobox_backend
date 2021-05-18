@@ -103,7 +103,8 @@ exports.career= (req, res) => {
                     res.status(500).send({ message: err.message });
                   })
             });
-};  
+});  
+  };
 exports.updatecareer=(req,res)=>{
   career.update({status:req.body.status},{where:{ID:req.body.id}
   }).then(showhome => {
