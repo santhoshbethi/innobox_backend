@@ -31,8 +31,7 @@ exports.addmenu = (req, res) => {
       });
   };
   exports.updatemenudata=(req,res)=>{
-    name=req.body.name;
-    menu.update({nam:req.body.val},{where:{ID:req.body.id}
+    menu.update({status:req.body.status,itemName:req.body.menuname,status:req.body.status},{where:{ID:req.body.id}
     }).then(showhome => {
   
       res.status(200).send({ message: showhome });
