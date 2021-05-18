@@ -32,7 +32,7 @@ exports.addmenu = (req, res) => {
   };
   exports.updatemenudata=(req,res)=>{
     name=req.body.name;
-    menu.update({name:req.body.val},{where:{ID:req.body.id}
+    menu.update({nam:req.body.val},{where:{ID:req.body.id}
     }).then(showhome => {
   
       res.status(200).send({ message: showhome });
