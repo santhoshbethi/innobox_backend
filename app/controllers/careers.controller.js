@@ -90,14 +90,19 @@ exports.career= (req, res) => {
           status:req.body.status, 
              };
              career.create(xyz)      
-             .then(Log => {         
-
-              res.send({ message: "Career added successfully" });
-                          })
-                            .catch(err => {
-                                res.status(500).send({ message: err.message });
-                              });
-                            })
+             .then(career => {
+              careerdesc.create({
+                description:req.body.description,
+                  jobId:career.id,
+            
+              }).then(menu => {
+            
+                res.send({ message: "Career added successfully" });
+              })
+                .catch(err => {
+                    res.status(500).send({ message: err.message });
+                  })
+            });
 };  
 exports.updatecareer=(req,res)=>{
   career.update({status:req.body.status},{where:{ID:req.body.id}
