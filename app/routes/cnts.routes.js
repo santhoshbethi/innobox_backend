@@ -8,8 +8,8 @@ module.exports = function(app) {
       );
       next();
     });
-    app.get("/api/cts/page", contactus.contactuspage);
-    app.post("/api/cts/updateimage", contactus.updateimage);
+ //   app.get("/api/cts/page", contactus.contactuspage);
+ //   app.post("/api/cts/updateimage", contactus.updateimage);
     app.post("/api/cts/updatetext", contactus.updatetext);
     app.post("/api/cts/addaddress", contactus.addaddress);
     app.post("/api/cts/updateaddress", contactus.updateaddress);
