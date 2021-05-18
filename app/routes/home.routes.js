@@ -13,4 +13,9 @@ module.exports = function(app) {
     app.post("/api/home/updatemenu", homepage.updatemenu);
     app.post("/api/home/updatemenuname", homepage.updatemenuname);
     app.post("/api/home/updatemenuparent", homepage.updatemenuparent);
+    app.get("/api/home/gettestimonials", homepage.gettestmnls);
+   // app.post("/api/home/updatetestimonials", homepage.updatetestimonials); pedning
+    app.post("/api/home/addtestimonials", homepage.addtestimonials);
+    app.post("/api/home/updatetestimonialsstatus", homepage.updatetestimonialsstatus);
+    app.post("/api/home/hmpcontactus", homepage.hmpcontactus);
 };

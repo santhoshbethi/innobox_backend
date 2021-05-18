@@ -1,5 +1,7 @@
 const db=require("../models");
+const tstmnls=db.tsmnals;
 const menu=db.mnbar;
+const contus=db.contus;
 exports.menu= (req, res) => {
     menu.findAll({
 
@@ -62,4 +64,62 @@ exports.updatemenuparent=(req,res)=>{
     res.status(500).send({ message: err.message });
   });
   
+};
+
+exports.addtestimonials = (req, res) => {
+  tstmnls.create({
+      rank:req.body.rank, 
+      content:req.body.content,   
+      customerName:req.body.name,
+
+})
+.then(tstmnls => {
+
+  res.send({ message: "success" });
+})
+  .catch(err => {
+      res.status(500).send({ message: err.message });
+    });
+};
+
+exports.gettestmnls= (req, res) => {
+  tstmnls.findAll({
+
+  }).then(tstmnls => {
+
+      res.status(200).send({ message: tstmnls });
+      
+    })
+    .catch(err => {
+      res.status(500).send({ message: err.message });
+    });
+};
+exports.updatetestimonialsstatus=(req,res)=>{
+  tstmnls.update({status:req.body.status},{where:{ID:req.body.id}
+  }).then(tstmnls => {
+
+    res.status(200).send({ message: tstmnls });
+    
+  })
+  .catch(err => {
+    res.status(500).send({ message: err.message });
+  });
+  
+};
+
+
+exports.hmpcontactus = (req, res) => {
+  contus.create({
+      Name:req.body.name, 
+      email:req.body.email,   
+      message:req.body.message,
+
+})
+.then(contus => {
+
+  res.send({ message: "success" });
+})
+  .catch(err => {
+      res.status(500).send({ message: err.message });
+    });
 };

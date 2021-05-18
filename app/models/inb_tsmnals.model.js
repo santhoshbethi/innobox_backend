@@ -20,6 +20,11 @@ module.exports = (sequelize, Sequelize) => {
 			type: Sequelize.STRING(50),
 			
 			comment:"customer Name"
+		},
+		status:{
+			type: Sequelize.STRING(50),
+			
+			comment:"Active , Inactive "
 		}
   },
   {

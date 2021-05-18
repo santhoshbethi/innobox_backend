@@ -37,6 +37,9 @@ db.mnbar = require("../models/inb_mnbar.model.js")(sequelize, Sequelize);
 db.msg = require("../models/inb_msg.model.js")(sequelize, Sequelize);
 db.magcats = require("../models/inb_msgcats.model.js")(sequelize, Sequelize);
 db.tsmnals = require("../models/inb_tsmnals.model.js")(sequelize, Sequelize);
+db.careerimgs = require("../models/inb_careerimgs.model.js")(sequelize, Sequelize);
+db.rcntwcat = require("../models/inb_rcntwcat.model.js")(sequelize, Sequelize);
+db.ctspage = require("../models/inb_ctspage.model.js")(sequelize, Sequelize);
 
 
 
