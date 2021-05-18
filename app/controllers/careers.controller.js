@@ -2,6 +2,18 @@ const db=require("../models");
 const career=db.career;
 const emptlk=db.emptlk;
 const careerdesc=db.jbdscr;
+var multer  =   require('multer');
+
+var storage =   multer.diskStorage({
+  destination: function (req, file, callback) {
+    callback(null, './uploads');
+  },
+  filename: function (req, file, callback) {
+    callback(null, file.fieldname + '-' + Date.now()+ "_" + file.originalname);
+}
+});
+
+  var upload = multer({ storage : storage}).single('file');
 exports.career= (req, res) => {
     career.findAll({
 
@@ -56,31 +68,37 @@ exports.career= (req, res) => {
   };
   
   
-exports.addcareer = (req, res) => {
-  career.create({
-        jobTitle:req.body.title, 
-        locationCountry:req.body.location,   
-        experience:req.body.experience,   
-        opens:req.body.opens,   
-        image:req.body.image,   
-        status:req.body.status,   
+  exports.addcareer=(req,res)=>{
+    upload(req,res,function(err) {
+    if(err) {
+         return res.send(err);
+         }   
+         if(req.file)
+         {
+           var fileval=req.file.filename;
+         }
+         else
+         {
+          var fileval='';
+         }
+         var xyz={
+          jobTitle:req.body.title, 
+          locationCountry:req.body.location,   
+          experience:req.body.experience,   
+          opens:req.body.opens,   
+          image:fileval,   
+          status:req.body.status, 
+             };
+             career.create(xyz)      
+             .then(Log => {         
 
-})
-.then(career => {
-  console.log(career.ID);
-  careerdesc.create({
-    description:req.body.description,
-jobID:career.ID,
-
-  }).then(menu => {
-
-    res.send({ message: "Career added successfully" });
-  })
-    .catch(err => {
-        res.status(500).send({ message: err.message });
-      })
-});
-  };
+              res.send({ message: "Career added successfully" });
+                          })
+                            .catch(err => {
+                                res.status(500).send({ message: err.message });
+                              });
+                            })
+};  
 exports.updatecareer=(req,res)=>{
   career.update({status:req.body.status},{where:{ID:req.body.id}
   }).then(showhome => {
