@@ -47,12 +47,12 @@ exports.addaddress = (req, res) => {
 };
 exports.sendmsg = (req, res) => {
     msg.create({
-        name:name,
-        email:email,
-        phone:phone,
-        company:company,
-        message:message,
-        messagecat:messagecat,
+        name:req.body.name,
+        email:req.body.email,
+        phone:req.body.phone,
+        company:req.body.company,
+        message:req.body.message,
+        messagecat:req.body.messagecat,
        
 
 
