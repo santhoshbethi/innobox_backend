@@ -2,6 +2,7 @@ const db=require("../models");
 const tstmnls=db.tsmnals;
 const menu=db.mnbar;
 const contus=db.cntus;
+const enqry=db.enqry;
 exports.menu= (req, res) => {
     menu.findAll({
 
@@ -110,7 +111,7 @@ exports.updatetestimonialsstatus=(req,res)=>{
 
 exports.hmpcontactus = (req, res) => {
   console.log(req.body.name);
-  contus.create({
+  enqry.create({
       Name:req.body.name, 
       email:req.body.email,   
       message:req.body.message,
