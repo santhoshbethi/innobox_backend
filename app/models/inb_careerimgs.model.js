@@ -22,5 +22,5 @@ module.exports = (sequelize, Sequelize) => {
 	   timestamps:false
   });
 
-  return inb_careerimgs;
+  return inb_career;
 };

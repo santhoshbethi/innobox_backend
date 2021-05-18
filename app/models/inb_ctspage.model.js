@@ -1,5 +1,5 @@
 module.exports = (sequelize, Sequelize) => {
-	const inb_career = sequelize.define("inb_ctspage", {
+	const inb_ctspage = sequelize.define("inb_ctspage", {
     ID: {
       type: Sequelize.INTEGER,
       autoIncrement:true,
