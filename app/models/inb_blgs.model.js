@@ -5,13 +5,7 @@ module.exports = (sequelize, Sequelize) => {
       autoIncrement:true,
 	  primaryKey: true
     },
-	serviceID: {
-      type: Sequelize.INTEGER,
-	  autoIncrement:false,
-	  comment:"Service ID",
-	  unique:true
-	  
-    },
+
     	title:{
 			type: Sequelize.STRING,
 			comment:"Blog Name"
