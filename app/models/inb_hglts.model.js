@@ -8,7 +8,7 @@ module.exports = (sequelize, Sequelize) => {
 
     	serviceID:{
 			type: Sequelize.INTEGER,
-			unique:true,
+		
 			comment:"Enquirer Name"
 		},
 				cntnt:{
