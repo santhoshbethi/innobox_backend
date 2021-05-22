@@ -85,7 +85,7 @@ exports.updateserviceshtls=(req,res)=>{
     },{where:{ID:req.body.id}
 }).then(rectwrkcatx => {
 
-  res.status(200).send({ message: req.body.serviceID });
+  res.status(200).send({ message: req.body.servicesid });
   
 })
 .catch(err => {
