@@ -4,7 +4,7 @@ const highlts=db.hglts;
 exports.addserviceshtls=(req, res) => {
     highlts.create({
       serviceID:req.body.servicesid,
-      contnt:req.body.content
+      cntnt:req.body.content
        
 })
 .then(services => {
