@@ -33,7 +33,7 @@ app.get("/", (req, res) => {
 });
 
 // routes	
-require('./app/routes/abcd.routes')(app);
+
 require('./app/routes/home.routes')(app);
 require('./app/routes/careers.routes')(app);
 require('./app/routes/cnts.routes')(app);
