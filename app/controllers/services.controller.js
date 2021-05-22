@@ -60,7 +60,7 @@ exports.getserviceshtls= (req, res) => {
 
 exports.updateservices=(req,res)=>{
   
-    highlts.update({
+     services.update({
         title:req.body.title,
         qtxt:req.body.quicktext,
         shdcr:req.body.shortdescr,
@@ -78,14 +78,14 @@ exports.updateservices=(req,res)=>{
 
 exports.updateserviceshtls=(req,res)=>{
   
-    services.update({
+    highlts.update({
         serviceID:req.body.servicesid,
         cntnt:req.body.content
      
     },{where:{ID:req.body.id}
 }).then(rectwrkcatx => {
 
-  res.status(200).send({ message: req.body.name });
+  res.status(200).send({ message: req.body.serviceID });
   
 })
 .catch(err => {
