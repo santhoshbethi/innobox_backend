@@ -9,7 +9,7 @@ module.exports = function(app) {
       next();
     });
     app.get("/api/services/getservices", services.getservices);
-    app.get("/api/services/getserviceshighlights", services.getserviceshtls);
+    app.post("/api/services/getserviceshighlights", services.getserviceshtls);
     app.post("/api/services/addservices", services.addservices);
     app.post("/api/services/addserviceshtls", services.addserviceshtls);
     app.post("/api/services/updateservices", services.updateservices);
