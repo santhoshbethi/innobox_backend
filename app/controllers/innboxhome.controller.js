@@ -1,14 +1,38 @@
 const db=require("../models");
 const tstmnls=db.tsmnals;
+const sequelize = db.sequelize;
 const menu=db.mnbar;
 const contus=db.cntus;
 const enqry=db.enqry;
 exports.menu= (req, res) => {
+  
+  let nodedata = [];
     menu.findAll({
-
+      where: {refID:'0'}
     }).then(showhome => {
+      
+      let j=0;
+      let promise2='';
+    
+      for (let i = 0; i < showhome.length; i++)  {     
+    promise2 = new Promise(function(resolve, reject) {
+       sequelize.query("select * from inb_mnbar where  refID="+showhome[i].dataValues["ID"], { type: sequelize.QueryTypes.SELECT})
+     .then(showsubmenu=>{
+       
+       nodedata.push({'parent':showhome[i].dataValues["ID"],'submenu':showsubmenu});
+  
+      
+      resolve(nodedata); 
 
-        res.status(200).send({ message: showhome });
+     })   
+    })
+    
+      }
+      promise2.then(function(result) {
+        res.status(200).send({ message: result});
+     })
+     
+      
         
       })
       .catch(err => {
@@ -32,7 +56,7 @@ exports.addmenu = (req, res) => {
   };
   exports.updatemenudata=(req,res)=>{
     
-    menu.update({refID:req.body.parent,itemName:req.body.menuname,status:req.body.status},{where:{ID:req.body.id}
+    menu.update({refID:req.body.refID,itemName:req.body.menuname,status:req.body.status},{where:{ID:req.body.id}
     }).then(menu => {
   
       res.status(200).send({ message: req.body.menuname   });
