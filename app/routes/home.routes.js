@@ -19,4 +19,5 @@ module.exports = function(app) {
     app.post("/api/home/updatetestimonialsstatus", homepage.updatetestimonialsstatus);
     app.post("/api/home/hmpcontactus", homepage.hmpcontactus);
     app.post("/api/home/updatemenudata", homepage.updatemenudata);
+    app.get("/api/home/getsliderimage", homepage.sliderimage);
 };

@@ -3,7 +3,20 @@ const tstmnls=db.tsmnals;
 const sequelize = db.sequelize;
 const menu=db.mnbar;
 const contus=db.cntus;
+const hmslider=db.homeslider;
 const enqry=db.enqry;
+exports.sliderimage= (req, res) => {
+  hmslider.findAll({
+
+  }).then(tstmnls => {
+
+      res.status(200).send({ message: tstmnls });
+      
+    })
+    .catch(err => {
+      res.status(500).send({ message: err.message });
+    });
+};
 exports.menu= (req, res) => {
   
   let nodedata = [];
