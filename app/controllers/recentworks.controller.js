@@ -1,5 +1,6 @@
 const db=require("../models");
 const rectwrkcat=db.rcntwcat;
+const recentworks=db.recentworks;
 exports.abcd= (req, res) => {
   res.status(200).send("first execution.");
 };
@@ -18,6 +19,32 @@ exports.addrectwrkcat = (req, res) => {
 };
 exports.getrectwrkcat= (req, res) => {
   rectwrkcat.findAll({
+
+  }).then(showhome => {
+
+      res.status(200).send({ message: showhome });
+      
+    })
+    .catch(err => {
+      res.status(500).send({ message: err.message });
+    });
+};
+exports.getrecentworks= (req, res) => {
+  recentworks.findAll({
+    attributes: ['ID', 'homename','image1']
+
+  }).then(showhome => {
+
+      res.status(200).send({ message: showhome });
+      
+    })
+    .catch(err => {
+      res.status(500).send({ message: err.message });
+    });
+};
+exports.getrecentworksbyid= (req, res) => {
+  recentworks.findAll({
+    where:{ID:req.body.id}
 
   }).then(showhome => {
 
