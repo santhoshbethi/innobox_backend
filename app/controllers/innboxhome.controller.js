@@ -8,9 +8,9 @@ const enqry=db.enqry;
 exports.sliderimage= (req, res) => {
   hmslider.findAll({
 
-  }).then(tstmnls => {
+  }).then(slider => {
 
-      res.status(200).send({ message: tstmnls });
+      res.status(200).send({ message: slider });
       
     })
     .catch(err => {

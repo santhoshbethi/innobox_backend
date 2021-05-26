@@ -21,11 +21,11 @@ module.exports = (sequelize, Sequelize) => {
 			
 			comment:"customer Name"
 		},
-		status:{
-			type: Sequelize.STRING(50),
+		// status:{
+		// 	type: Sequelize.STRING(50),
 			
-			comment:"Active , Inactive "
-		}
+		// 	comment:"Active , Inactive "
+		// }
   },
   {
 	   freezeTableName: true,
