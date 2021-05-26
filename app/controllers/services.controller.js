@@ -17,6 +17,7 @@ exports.addserviceshtls=(req, res) => {
 };
 exports.addservices = (req, res) => {
     services.create({
+        serviceID:req.body.menuid,
         title:req.body.title,
         qtxt:req.body.quicktext,
         shdcr:req.body.shortdescr,
@@ -61,6 +62,7 @@ exports.getserviceshtls= (req, res) => {
 exports.updateservices=(req,res)=>{
   
      services.update({
+      serviceID:req.body.menuid,
         title:req.body.title,
         qtxt:req.body.quicktext,
         shdcr:req.body.shortdescr,

@@ -10,6 +10,10 @@ module.exports = (sequelize, Sequelize) => {
 			type: Sequelize.STRING,
 			comment:"Blog Name"
 		},
+		serviceID:{
+			type: Sequelize.STRING,
+			comment:"menu Id"
+		},
 		qtxt:{ 
 		type: Sequelize.STRING,
 			
