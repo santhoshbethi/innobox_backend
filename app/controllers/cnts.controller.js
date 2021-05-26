@@ -34,8 +34,15 @@ exports.addaddress = (req, res) => {
       });
   };
   exports.updateaddress=(req,res)=>{
-      var Param=req.body.Key;
-    contactus.update({param:req.body.value},{where:{ID:req.body.id}
+      
+    contactus.update({    
+      locationName:req.body.locationName,
+      locationCountry:req.body.locationCountry,
+      locationAddress:req.body.locationAddress,
+      locationLat:"0",
+      locationLan:"0",
+      phoneNumber:req.body.phoneNumber,
+      emailAddress:req.body.emailAddress},{where:{ID:req.body.id}
     }).then(showhome => {
   
       res.status(200).send({ message: showhome });
