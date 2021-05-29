@@ -9,11 +9,13 @@ module.exports = function(app) {
       next();
     });
     app.get("/api/services/getservices", services.getservices);
+    app.post("/api/services/getservicesbyid", services.getservicesbyid);
     app.post("/api/services/getserviceshighlights", services.getserviceshtls);
     app.post("/api/services/addservices", services.addservices);
     app.post("/api/services/addserviceshtls", services.addserviceshtls);
     app.post("/api/services/updateservices", services.updateservices);
     app.post("/api/services/updateserviceshtls", services.updateserviceshtls);
+    app.post("/api/services/addservicesimage", services.addservicesimage);
     
 
 };

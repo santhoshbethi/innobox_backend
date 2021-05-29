@@ -14,4 +14,6 @@ module.exports = function(app) {
     app.post("/api/home/careerbyid", homepage.careerbyid);
     app.get("/api/home/emptlk", homepage.emptlk);
     app.post("/api/home/createemptlk", homepage.createemptlk);
+    app.post("/api/home/applynow", homepage.apply);
+    app.get("/api/home/applicants", homepage.applicants);
 };

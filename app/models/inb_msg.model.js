@@ -35,7 +35,12 @@ module.exports = (sequelize, Sequelize) => {
 			type: Sequelize.INTEGER(50),
 			
 			comment:"Enquirer Category"
-		}
+		},
+		status:{
+			type:Sequelize.STRING,
+			defaultValue: "0",
+			comment:"Job Status -> 0-created , 1-closed"
+		},
 		
   },
   {

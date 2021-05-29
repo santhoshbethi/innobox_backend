@@ -71,7 +71,7 @@ exports.sendmsg = (req, res) => {
         phone:req.body.phone,
         company:req.body.company,
         message:req.body.message,
-        messagecat:req.body.messagecat,
+        messageCat:req.body.messagecat,
        
 
 
@@ -81,6 +81,18 @@ exports.sendmsg = (req, res) => {
     res.send({ message: "req addded successfully"});
   })
     .catch(err => {
+        res.status(500).send({ message: err.message });
+      });
+  };
+  exports.getsendmsg= (req, res) => {
+    msg.findAll({
+
+    }).then(showhome => {
+
+        res.status(200).send({ message: showhome });
+        
+      })
+      .catch(err => {
         res.status(500).send({ message: err.message });
       });
   };

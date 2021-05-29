@@ -47,6 +47,11 @@ module.exports = (sequelize, Sequelize) => {
                     type:Sequelize.STRING,
                     commet:"Blog Image Link"
                     }, 
+                    status:{
+                      type:Sequelize.STRING,
+                      defaultValue: "0",
+                      comment:"Job Status -> 0-ACTIVE, 1-INACTIVE"
+                    },
 			
 	
   },{

@@ -16,6 +16,11 @@ module.exports = (sequelize, Sequelize) => {
 				type:Sequelize.STRING,
 				comment:"Employee Feedback ContentS"
 			},
+			status:{
+				type:Sequelize.STRING,
+				defaultValue: "0",
+				comment:"Job Status -> 0-created, 1-approved"
+			},
 			
 			
 		

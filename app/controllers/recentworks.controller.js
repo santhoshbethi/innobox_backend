@@ -1,6 +1,18 @@
 const db=require("../models");
 const rectwrkcat=db.rcntwcat;
 const recentworks=db.recentworks;
+var multer  =   require('multer');
+
+var storage =   multer.diskStorage({
+  destination: function (req, file, callback) {
+    callback(null, './uploads/home');
+  },
+  filename: function (req, file, callback) {
+    callback(null, file.fieldname + '-' + Date.now()+ "_" + file.originalname);
+}
+});
+
+  var upload = multer({ storage : storage}).single('file');
 exports.abcd= (req, res) => {
   res.status(200).send("first execution.");
 };
@@ -80,3 +92,79 @@ exports.updaterectwrkcat=(req,res)=>{
   res.status(500).send({ message: err.message });
 });
 };
+
+exports.addrecentwroks = (req, res) => {
+  upload(req,res,function(err) {
+    if(err) {
+         return res.send(err);
+         }   
+         if(req.file)
+         {
+           var fileval='/rctwrk/'+req.body.id+'-'+req.file.filename;
+         }
+         else
+         {
+          var fileval='';
+         }
+         
+         var xyz={
+          cat_id:req.body.cat_id,
+          homename:req.body.homename,
+          shdcr:req.body.shdcr,
+          title:req.body.title,
+          qtxt:req.body.qtxt,
+          fdcr:req.body.fdcr,
+          image1:fileval,
+          whatwegot1:req.body.whatwegot1,
+          whatwegot2:req.body.whatwegot2,
+          whatwegot3:req.body.whatwegot3,
+             };
+             recentworks.create(xyz)      
+             .then(menu => {
+            
+                res.send({ message: "recent work added successfully" });
+              })
+                .catch(err => {
+                    res.status(500).send({ message: err.message });
+                  })
+            
+});
+}
+exports.updaterecentwroks = (req, res) => {
+  upload(req,res,function(err) {
+    if(err) {
+         return res.send(err);
+         }   
+         if(req.file)
+         {
+           var fileval='/rctwrk/'+req.file.filename;
+         }
+         else
+         {
+          var fileval='';
+         }
+         
+         var xyz={
+          cat_id:req.body.cat_id,
+          homename:req.body.homename,
+          shdcr:req.body.shdcr,
+          title:req.body.title,
+          qtxt:req.body.qtxt,
+          fdcr:req.body.fdcr,
+          image1:fileval,
+          status:req.body.status,
+          whatwegot1:req.body.whatwegot1,
+          whatwegot2:req.body.whatwegot2,
+          whatwegot3:req.body.whatwegot3,
+             };
+             recentworks.update(xyz,{where:{ID:req.body.id}})     
+             .then(menu => {
+            
+                res.send({ message: "recent work updated successfully" });
+              })
+                .catch(err => {
+                    res.status(500).send({ message: err.message });
+                  })
+            
+});
+}

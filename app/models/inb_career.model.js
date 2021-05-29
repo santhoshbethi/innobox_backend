@@ -30,9 +30,14 @@ module.exports = (sequelize, Sequelize) => {
 				type:Sequelize.STRING,
 				comment:"Image link"
 			},
+			description:{
+				type:Sequelize.TEXT,
+				comment:"job desvription"
+			  } ,
 			status:{
 				type:Sequelize.STRING,
-				comment:"Job Status -> ACTIVE, INACTIVE"
+				defaultValue: "0",
+				comment:"Job Status -> 0-ACTIVE, 1-INACTIVE"
 			},
 			
 			

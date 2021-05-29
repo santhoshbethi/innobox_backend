@@ -35,7 +35,12 @@ module.exports = (sequelize, Sequelize) => {
 		image2:{
 				type:Sequelize.STRING,
 				comment:"Image link"
-			}
+			},
+			status:{
+				type:Sequelize.STRING,
+				defaultValue: "0",
+				comment:"Job Status -> 0-ACTIVE, 1-INACTIVE"
+			},
 		
   },{
 	   freezeTableName: true,

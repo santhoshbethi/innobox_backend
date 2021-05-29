@@ -13,6 +13,9 @@ module.exports = function(app) {
     app.post("/api/rectwrks/updatecat", rectwrks.updaterectwrkcat);
     app.get("/api/rectwrks/recentwroks", rectwrks.getrecentworks);
     app.post("/api/rectwrks/recentwroksbyid", rectwrks.getrecentworksbyid);
-    app.post("/api/rectwrks/recentwroks", rectwrks.getrecentworks);
+    app.get("/api/rectwrks/recentwroks", rectwrks.getrecentworks);
+    app.post("/api/rectwrks/addrecentwroks", rectwrks.addrecentwroks);
+    app.post("/api/rectwrks/updaterecentwroks", rectwrks.updaterecentwroks);
+    
 
 };

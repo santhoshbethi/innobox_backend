@@ -69,3 +69,40 @@ var storage =   multer.diskStorage({
  
 
  }; 
+ exports.addcareer=(req,res)=>{
+  upload(req,res,function(err) {
+  if(err) {
+       return res.send(err);
+       }   
+       if(req.file)
+       {
+         var fileval=req.file.filename;
+       }
+       else
+       {
+        var fileval='';
+       }
+       var xyz={
+        jobTitle:req.body.title, 
+        locationCountry:req.body.location,   
+        experience:req.body.experience,   
+        opens:req.body.opens,   
+        image:fileval,   
+        status:req.body.status, 
+           };
+           career.create(xyz)      
+           .then(career => {
+            careerdesc.create({
+              description:req.body.description,
+                jobId:career.id,
+          
+            }).then(menu => {
+          
+              res.send({ message: "Career added successfully" });
+            })
+              .catch(err => {
+                  res.status(500).send({ message: err.message });
+                })
+          });
+});  
+};

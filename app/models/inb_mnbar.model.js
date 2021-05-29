@@ -19,8 +19,14 @@ module.exports = (sequelize, Sequelize) => {
 			status:{
 				type:Sequelize.INTEGER,
 				comment:"0 for inactive, 1 for active"
-			}		
+			}	,
+			status:{
+				type:Sequelize.STRING,
+				defaultValue: "0",
+				comment:"Job Status -> 0-ACTIVE, 1-INACTIVE"
+			},	
   },
+  
   {
 	   freezeTableName: true,
 	   timestamps:false

@@ -1,6 +1,19 @@
 const db=require("../models");
 const services=db.blgs;
+const sequelize = db.sequelize;
 const highlts=db.hglts;
+var multer  =   require('multer');
+
+var storage =   multer.diskStorage({
+  destination: function (req, file, callback) {
+    callback(null, './uploads/services');
+  },
+  filename: function (req, file, callback) {
+    callback(null, file.fieldname + '-' + Date.now()+ "_" + file.originalname);
+}
+});
+
+  var upload = multer({ storage : storage}).single('file');
 exports.addserviceshtls=(req, res) => {
     highlts.create({
       serviceID:req.body.servicesid,
@@ -44,6 +57,7 @@ exports.getservices= (req, res) => {
       res.status(500).send({ message: err.message });
     });
 };
+
 
 exports.getserviceshtls= (req, res) => {
     highlts.findAll({
@@ -94,3 +108,79 @@ exports.updateserviceshtls=(req,res)=>{
   res.status(500).send({ message: err.message });
 });
 };
+exports.getservicesbyid= (req, res) => {
+  
+  let nodedata = [];
+    services.findAll({
+      where: {ID:req.body.id}
+    }).then(showhome => {
+      
+      let j=0;
+      let promise2='';
+    
+      for (let i = 0; i < showhome.length; i++)  {     
+    promise2 = new Promise(function(resolve, reject) {
+       sequelize.query("select * from inb_hglts where  serviceID="+showhome[i].dataValues["ID"], { type: sequelize.QueryTypes.SELECT})
+     .then(showsubmenu=>{
+       
+       nodedata.push({'maindata':showhome,'hiighlights':showsubmenu});
+  
+      
+      resolve(nodedata); 
+
+     })   
+    })
+    
+      }
+      promise2.then(function(result) {
+        res.status(200).send({ message: result});
+     })
+     
+      
+        
+      })
+      .catch(err => {
+        res.status(500).send({ message: err.message });
+      });
+  };
+  exports.addservicesimage = (req, res) => {
+    upload(req,res,function(err) {
+      if(err) {
+           return res.send(err);
+           }   
+           if(req.file)
+           {
+             var fileval='/services/'+req.body.id+'-'+req.file.filename;
+           }
+           else
+           {
+            var fileval='';
+           }
+        if(req.body.type=='m')
+        {
+           var xyz={
+          
+            image1:fileval,   
+           
+            
+               };
+              }
+              else if(req.body.type=='i')
+              {
+                var xyz={
+                  image2:fileval,   
+                     };
+              }
+               services.update(xyz,{where:{ID:req.body.id}})   
+               .then(menu => {
+              
+                  res.send({ message: "Slider successfully" });
+                })
+                  .catch(err => {
+                      res.status(500).send({ message: err.message });
+                    });
+            
+  });
+  }
+
+  

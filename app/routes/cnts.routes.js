@@ -15,6 +15,7 @@ module.exports = function(app) {
     app.post("/api/cts/addaddress", contactus.addaddress);
     app.post("/api/cts/updateaddress", contactus.updateaddress);
     app.post("/api/cts/sendmsg", contactus.sendmsg);
+    app.get("/api/cts/getsendmsg", contactus.getsendmsg);
 
    
 };

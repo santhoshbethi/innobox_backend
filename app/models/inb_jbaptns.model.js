@@ -39,6 +39,11 @@ module.exports = (sequelize, Sequelize) => {
 				type:Sequelize.STRING,
 				comment:"Applicant message"
 			},
+			status:{
+				type:Sequelize.STRING,
+				defaultValue: "0",
+				comment:"Job Status -> 0-applied, 1-viewed,2-shortlisted,3-rejected"
+			},
 		
   },
   {

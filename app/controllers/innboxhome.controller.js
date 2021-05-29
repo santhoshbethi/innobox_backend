@@ -5,7 +5,87 @@ const menu=db.mnbar;
 const contus=db.cntus;
 const hmslider=db.homeslider;
 const enqry=db.enqry;
-exports.sliderimage= (req, res) => {
+const staticdata=db.homestdata;
+const blgs=db.blgs;
+var multer  =   require('multer');
+
+var storage =   multer.diskStorage({
+  destination: function (req, file, callback) {
+    callback(null, './uploads/home');
+  },
+  filename: function (req, file, callback) {
+    callback(null, file.fieldname + '-' + Date.now()+ "_" + file.originalname);
+}
+});
+
+  var upload = multer({ storage : storage}).single('file');
+
+  exports.addsliderimage = (req, res) => {
+    upload(req,res,function(err) {
+      if(err) {
+           return res.send(err);
+           }   
+           if(req.file)
+           {
+             var fileval='/home/'+req.file.filename;
+           }
+           else
+           {
+            var fileval='';
+           }
+           console.log(fileval);
+           console.log("test");
+           var xyz={
+            title:req.body.title, 
+            text:req.body.text,   
+            path:fileval
+            
+               };
+               hmslider.create(xyz)      
+               .then(menu => {
+              
+                  res.send({ message: "Slider successfully" });
+                })
+                  .catch(err => {
+                      res.status(500).send({ message: err.message });
+                    });
+            
+  });
+  }
+  exports.updatesliderimage = (req, res) => {
+    upload(req,res,function(err) {
+      if(err) {
+           return res.send(err);
+           }   
+           if(req.file)
+           {
+             var fileval='/home/'+req.file.filename;
+           }
+           else
+           {
+            var fileval='';
+           }
+           console.log(fileval);
+           console.log("test");
+           var xyz={
+            title:req.body.title, 
+            text:req.body.text,   
+            path:fileval
+            
+               };
+                 
+               hmslider.update(xyz,{where:{ID:req.body.id}})
+               .then(menu => {
+              
+                  res.send({ message: "Slider successfully" });
+                })
+                  .catch(err => {
+                      res.status(500).send({ message: err.message });
+                    });
+            
+  });
+  }
+exports.getsliderimage= (req, res) => {
   hmslider.findAll({
 
   }).then(slider => {
@@ -172,6 +252,96 @@ exports.hmpcontactus = (req, res) => {
   res.send({ message: "success" });
 })
   .catch(err => {
+      res.status(500).send({ message: err.message });
+    });
+};
+// static data
+exports.addstaticdata = (req, res) => {
+  upload(req,res,function(err) {
+    if(err) {
+         return res.send(err);
+         }   
+         if(req.file)
+         {
+           var fileval='/home/'+req.file.filename;
+         }
+         else
+         {
+          var fileval=req.body.file;
+         }
+         
+         var xyz={
+          title:req.body.title, 
+          value:fileval,   
+          type:req.body.type
+          
+             };
+             staticdata.create(xyz)      
+             .then(menu => {
+            
+                res.send({ message: "data successfully" });
+              })
+                .catch(err => {
+                    res.status(500).send({ message: err.message });
+                  });
+          
+});
+}
+exports.updatestaticdata = (req, res) => {
+  upload(req,res,function(err) {
+    if(err) {
+         return res.send(err);
+         }   
+         if(req.file)
+         {
+           var fileval='/home/'+req.file.filename;
+         }
+         else
+         {
+          var fileval=req.body.file;
+         }
+         
+         var xyz={
+          title:req.body.title, 
+          value:fileval,   
+          type:req.body.type
+          
+             };
+            
+             staticdata.update(xyz,{where:{ID:req.body.id}})    
+             .then(menu => {
+            
+                res.send({ message: "Slider successfully" });
+              })
+                .catch(err => {
+                    res.status(500).send({ message: err.message });
+                  });
+          
+});
+}
+exports.getstaticdata= (req, res) => {
+  staticdata.findAll({
+
+  }).then(slider => {
+
+      res.status(200).send({ message: slider });
+      
+    })
+    .catch(err => {
+      res.status(500).send({ message: err.message });
+    });
+};
+
+exports.getserviescat= (req, res) => {
+  blgs.findAll({
+    attributes: ['ID', 'title','image1','qtst','shdcr']
+
+  }).then(slider => {
+
+      res.status(200).send({ message: slider });
+      
+    })
+    .catch(err => {
       res.status(500).send({ message: err.message });
     });
 };

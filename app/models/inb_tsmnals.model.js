@@ -21,11 +21,11 @@ module.exports = (sequelize, Sequelize) => {
 			
 			comment:"customer Name"
 		},
-		// status:{
-		// 	type: Sequelize.STRING(50),
-			
-		// 	comment:"Active , Inactive "
-		// }
+		status:{
+			type:Sequelize.STRING,
+			defaultValue: "0",
+			comment:"Job Status -> 0-ACTIVE, 1-INACTIVE"
+		},
   },
   {
 	   freezeTableName: true,

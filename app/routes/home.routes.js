@@ -19,5 +19,14 @@ module.exports = function(app) {
     app.post("/api/home/updatetestimonialsstatus", homepage.updatetestimonialsstatus);
     app.post("/api/home/hmpcontactus", homepage.hmpcontactus);
     app.post("/api/home/updatemenudata", homepage.updatemenudata);
-    app.get("/api/home/getsliderimage", homepage.sliderimage);
+    app.get("/api/home/getsliderimage", homepage.getsliderimage);
+    app.post("/api/home/addsliderimage", homepage.addsliderimage);
+    app.post("/api/home/updatesliderimage", homepage.updatesliderimage);
+    app.get("/api/home/getserviescat", homepage.getserviescat);
+    // static data routes
+    app.post("/api/home/addstaticdata", homepage.addstaticdata);
+    app.post("/api/home/updatestaticdata", homepage.updatestaticdata);
+    app.get("/api/home/getstaticdata", homepage.getstaticdata);
+
+
 };
