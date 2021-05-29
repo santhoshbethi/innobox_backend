@@ -334,7 +334,7 @@ exports.getstaticdata= (req, res) => {
 
 exports.getserviescat= (req, res) => {
   blgs.findAll({
-    attributes: ['ID', 'title','image1','qtst','shdcr']
+    attributes: ['ID', 'title','image1','qtxt','shdcr']
 
   }).then(slider => {
 
