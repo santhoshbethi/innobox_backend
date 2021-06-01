@@ -112,7 +112,7 @@ exports.menu= (req, res) => {
        sequelize.query("select * from inb_mnbar where  refID="+showhome[i].dataValues["ID"], { type: sequelize.QueryTypes.SELECT})
      .then(showsubmenu=>{
        
-       nodedata.push({'parent':showhome[i].dataValues["ID"],'submenu':showsubmenu});
+       nodedata.push({'parent':showhome,'submenu':showsubmenu});
   
       
       resolve(nodedata); 
