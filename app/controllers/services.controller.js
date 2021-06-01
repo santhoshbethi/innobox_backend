@@ -150,7 +150,7 @@ exports.getservicesbyid= (req, res) => {
            }   
            if(req.file)
            {
-             var fileval='/services/'+req.body.id+'-'+req.file.filename;
+            var fileval='/services/'+req.file.filename;
            }
            else
            {
