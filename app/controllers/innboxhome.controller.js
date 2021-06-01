@@ -136,6 +136,7 @@ exports.addmenu = (req, res) => {
     menu.create({
         itemName:req.body.menuname, 
         refID:req.body.parent,   
+        href:req.body.href,
         status:'0',
 
 })
