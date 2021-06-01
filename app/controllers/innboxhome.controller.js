@@ -150,7 +150,7 @@ exports.addmenu = (req, res) => {
   };
   exports.updatemenudata=(req,res)=>{
     
-    menu.update({refID:req.body.refID,itemName:req.body.menuname,status:req.body.status},{where:{ID:req.body.id}
+    menu.update({'href':req.body.href,refID:req.body.refID,itemName:req.body.menuname,status:req.body.status},{where:{ID:req.body.id}
     }).then(menu => {
   
       res.status(200).send({ message: req.body.menuname   });
