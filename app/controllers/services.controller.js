@@ -112,7 +112,7 @@ exports.getservicesbyid= (req, res) => {
   
   let nodedata = [];
     services.findAll({
-      where: {ID:req.body.id}
+      where: {serviceID:req.body.id}
     }).then(showhome => {
       
       let j=0;
