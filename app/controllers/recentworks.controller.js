@@ -100,7 +100,7 @@ exports.addrecentwroks = (req, res) => {
          }   
          if(req.file)
          {
-           var fileval='/rctwrk/'+req.body.id+'-'+req.file.filename;
+           var fileval='/rctwrk/'+req.file.filename;
          }
          else
          {

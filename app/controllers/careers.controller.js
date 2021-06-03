@@ -24,7 +24,7 @@ exports.addcareer = (req, res) => {
          }   
          if(req.file)
          {
-           var fileval='/careers/'+req.body.id+'-'+req.file.filename;
+           var fileval='/careers/'+req.file.filename;
          }
          else
          {
@@ -115,7 +115,7 @@ exports.updatecareer = (req, res) => {
          }   
          if(req.file)
          {
-           var fileval='/careers/'+req.body.id+'-'+req.file.filename;
+           var fileval='/careers/'+req.file.filename;
          }
          else
          {
@@ -153,7 +153,7 @@ exports.apply = (req, res) => {
          }   
          if(req.file)
          {
-           var fileval='/careers/apply/'+req.body.id+'-'+req.file.filename;
+           var fileval='/careers/apply/'+req.file.filename;
          }
          else
          {
