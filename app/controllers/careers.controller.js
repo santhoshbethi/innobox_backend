@@ -108,44 +108,47 @@ exports.career= (req, res) => {
  
 
 
-exports.updatecareer = (req, res) => {
-  upload(req,res,function(err) {
-    if(err) {
-         return res.send(err);
-         }   
-         if(req.file)
-         {
-           var fileval='/careers/'+req.file.filename;
-         }
-         else
-         {
-          var fileval='';
-         }
-     
-         var xyz={
-          jobTitle:req.body.title, 
-          locationCountry:req.body.location,   
-          experience:req.body.experience,   
-          opens:req.body.opens,   
-          image:fileval,   
-          status:req.body.status, 
-          description:req.body.description,
-         
-          
-             };
+  exports.updatecareer = (req, res) => {
+    upload(req,res,function(err) {
+      if(err) {
+           return res.send(err);
+           }   
+           if(req.file)
+           {
+             var fileval='/careers/'+req.file.filename;
+           }
+           else
+           {
+            var fileval='';
+           }
+           
+           var xyz={
+            jobTitle:req.body.title, 
+            locationCountry:req.body.location,   
+            experience:req.body.experience,   
+            opens:req.body.opens,   
+            image:fileval,   
+            status:req.body.status, 
+            description:req.body.description,
+           
             
-          
-             career.update(xyz,{where:{ID:req.body.id}})   
-             .then(menu => {
+               };
+              
             
-                res.send({ message: "Slider successfully" });
-              })
-                .catch(err => {
-                    res.status(500).send({ message: err.message });
-                  });
-          
-});
-}
+               career.update(xyz,{where:{ID:req.body.id}})       
+               .then(menu => {
+              
+                  res.send({ message: "Career added successfully" });
+                })
+                  .catch(err => {
+                      res.status(500).send({ message: err.message });
+                    })
+              
+  });
+  
+  }
+  
+  
 exports.apply = (req, res) => {
   upload(req,res,function(err) {
     if(err) {
