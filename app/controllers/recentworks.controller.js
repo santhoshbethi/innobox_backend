@@ -141,7 +141,7 @@ exports.updaterecentwroks = (req, res) => {
          }
          else
          {
-          var fileval='';
+          var fileval=req.body.file;
          }
          
          var xyz={

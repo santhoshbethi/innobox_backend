@@ -63,7 +63,7 @@ var storage =   multer.diskStorage({
            }
            else
            {
-            var fileval='';
+            var fileval=req.body.file;
            }
            console.log(fileval);
            console.log("test");
