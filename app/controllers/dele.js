@@ -106,3 +106,39 @@ var storage =   multer.diskStorage({
           });
 });  
 };
+//promise 
+exports.menu= (req, res) => {
+  
+  let nodedata = [];
+    menu.findAll({
+      where: {refID:'0'}
+    }).then(showhome => {
+      
+      let j=0;
+      let promise2='';
+    
+      for (let i = 0; i < showhome.length; i++)  {     
+    promise2 = new Promise(function(resolve, reject) {
+       sequelize.query("select * from inb_mnbar where  refID="+showhome[i].dataValues["ID"], { type: sequelize.QueryTypes.SELECT})
+     .then(showsubmenu=>{
+       
+       nodedata.push({'parent':showhome[i],'submenu':showsubmenu});
+  
+      
+      resolve(nodedata); 
+
+     })   
+    })
+    
+      }
+      promise2.then(function(result) {
+        res.status(200).send({ message: result});
+     })
+     
+      
+        
+      })
+      .catch(err => {
+        res.status(500).send({ message: err.message });
+      });
+  };
