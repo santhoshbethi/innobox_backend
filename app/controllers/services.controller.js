@@ -113,31 +113,19 @@ exports.getservicesbyid= (req, res) => {
   let nodedata = [];
     services.findAll({
       where: {serviceID:req.body.id}
-    }).then(showhome => {
-      
-      let j=0;
-      let promise2='';
-    
-      for (let i = 0; i < showhome.length; i++)  {     
-    promise2 = new Promise(function(resolve, reject) {
-       sequelize.query("select * from inb_hglts where  serviceID="+showhome[i].dataValues["ID"], { type: sequelize.QueryTypes.SELECT})
+    }).then(showhome => {     
+         
+   
+       sequelize.query("select * from inb_hglts where  serviceID="+showhome.ID, { type: sequelize.QueryTypes.SELECT})
      .then(showsubmenu=>{
        
        nodedata.push({'maindata':showhome,'hiighlights':showsubmenu});
   
       
-      resolve(nodedata); 
+       res.status(200).send({ message: nodedata}); 
 
-     })   
-    })
-    
-      }
-      promise2.then(function(result) {
-        res.status(200).send({ message: result});
-     })
-     
-      
-        
+     })    
+       
       })
       .catch(err => {
         res.status(500).send({ message: err.message });
