@@ -116,7 +116,7 @@ exports.getservicesbyid= (req, res) => {
     }).then(showhome => {     
          
    
-       sequelize.query("select * from inb_hglts where  serviceID="+showhome.ID, { type: sequelize.QueryTypes.SELECT})
+       sequelize.query("select * from inb_hglts where  serviceID="+showhome['0'].dataValues["ID"], { type: sequelize.QueryTypes.SELECT})
      .then(showsubmenu=>{
        
        nodedata.push({'maindata':showhome,'hiighlights':showsubmenu});
