@@ -326,3 +326,16 @@ exports.getserviescat= (req, res) => {
       res.status(500).send({ message: err.message });
     });
 };
+exports.frontmenu= (req, res) => {
+  
+  let nodedata = [];
+    menu.findAll({
+      where: {refID:req.body.id}
+    }).then(showhome =>{
+      res.status(200).send({ message: showhome });
+        
+      })
+      .catch(err => {
+        res.status(500).send({ message: err.message });
+      });
+  };
