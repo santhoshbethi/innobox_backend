@@ -15,7 +15,10 @@ module.exports = (sequelize, Sequelize) => {
 				type:Sequelize.STRING,
 				comment:"Menu Bar Item ID Referrence"
 			},
-		
+			children:{
+				type:Sequelize.STRING,
+				comment:"To save children"
+			},
 			href:{
 				type:Sequelize.STRING,
 				comment:"link"

@@ -9,7 +9,7 @@ module.exports = function(app) {
       next();
     });
     app.get("/api/home/menu", homepage.menu);
-    app.post("/api/home/homemenu", homepage.frontmenu);
+    app.get("/api/home/homemenu", homepage.frontmenu);
     app.post("/api/home/addmenu", homepage.addmenu);
     app.post("/api/home/updatemenu", homepage.updatemenu);
     app.post("/api/home/updatemenuname", homepage.updatemenuname);
