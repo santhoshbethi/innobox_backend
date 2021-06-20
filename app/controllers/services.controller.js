@@ -159,7 +159,8 @@ exports.getservicesbyid= (req, res) => {
                   image2:fileval,   
                      };
               }
-               services.update(xyz,{where:{ID:req.body.id}})   
+              console.log(xyz);
+               services.update(xyz,{where:{serviceID:req.body.id}})   
                .then(menu => {
               
                   res.send({ message: "Slider successfully" });
