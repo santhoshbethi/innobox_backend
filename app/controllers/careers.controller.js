@@ -117,10 +117,6 @@ exports.career= (req, res) => {
            {
              var fileval='/careers/'+req.file.filename;
            }
-           else
-           {
-            var fileval=req.body.file;
-           }
            
            var xyz={
             jobTitle:req.body.title, 

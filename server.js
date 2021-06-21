@@ -38,6 +38,7 @@ app.get("/", (req, res) => {
 // routes	
 
 require('./app/routes/home.routes')(app);
+require('./app/routes/web.routes')(app);
 require('./app/routes/careers.routes')(app);
 require('./app/routes/cnts.routes')(app);
 require('./app/routes/recentworks.routes')(app);

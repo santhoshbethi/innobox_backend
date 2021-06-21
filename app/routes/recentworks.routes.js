@@ -13,7 +13,7 @@ module.exports = function(app) {
     app.post("/api/rectwrks/updatecat", rectwrks.updaterectwrkcat);
     app.get("/api/rectwrks/recentwroks", rectwrks.getrecentworks);
     app.post("/api/rectwrks/recentwroksbyid", rectwrks.getrecentworksbyid);
-    app.get("/api/rectwrks/recentwroks", rectwrks.getrecentworks);
+    
     app.post("/api/rectwrks/addrecentwroks", rectwrks.addrecentwroks);
     app.post("/api/rectwrks/updaterecentwroks", rectwrks.updaterecentwroks);
     

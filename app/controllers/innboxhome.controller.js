@@ -35,9 +35,8 @@ exports.addsliderimage = (req, res) => {
     if (req.file) {
       var fileval = '/home/' + req.file.filename;
     }
-    else {
-      var fileval = '';
-    }
+  
+    
     console.log(fileval);
     console.log("test");
     var xyz = {
@@ -65,9 +64,7 @@ exports.updatesliderimage = (req, res) => {
     if (req.file) {
       var fileval = '/home/' + req.file.filename;
     }
-    else {
-      var fileval = req.body.file;
-    }
+    
     console.log(fileval);
     console.log("test");
     var xyz = {
@@ -253,10 +250,7 @@ exports.addstaticdata = (req, res) => {
     if (req.file) {
       var fileval = '/home/' + req.file.filename;
     }
-    else {
-      var fileval = req.body.file;
-    }
-
+  
     var xyz = {
       title: req.body.title,
       value: fileval,
@@ -282,9 +276,7 @@ exports.updatestaticdata = (req, res) => {
     if (req.file) {
       var fileval = '/home/' + req.file.filename;
     }
-    else {
-      var fileval = req.body.file;
-    }
+    
 
     var xyz = {
       title: req.body.title,

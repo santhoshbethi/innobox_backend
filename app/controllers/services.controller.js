@@ -140,10 +140,7 @@ exports.getservicesbyid= (req, res) => {
            {
             var fileval='/services/'+req.file.filename;
            }
-           else
-           {
-            var fileval='';
-           }
+          
         if(req.body.type=='m')
         {
            var xyz={

@@ -41,19 +41,7 @@ exports.getrectwrkcat= (req, res) => {
       res.status(500).send({ message: err.message });
     });
 };
-exports.getrecentworks= (req, res) => {
-  recentworks.findAll({
-    attributes: ['ID', 'homename','image1']
 
-  }).then(showhome => {
-
-      res.status(200).send({ message: showhome });
-      
-    })
-    .catch(err => {
-      res.status(500).send({ message: err.message });
-    });
-};
 exports.getrecentworksbyid= (req, res) => {
   recentworks.findAll({
     where:{ID:req.body.id}
@@ -139,11 +127,8 @@ exports.updaterecentwroks = (req, res) => {
          {
            var fileval='/rctwrk/'+req.file.filename;
          }
-         else
-         {
-          var fileval=req.body.file;
-         }
-         
+        
+         console.log(fileval);
          var xyz={
           cat_id:req.body.cat_id,
           homename:req.body.homename,
@@ -157,6 +142,7 @@ exports.updaterecentwroks = (req, res) => {
           whatwegot2:req.body.whatwegot2,
           whatwegot3:req.body.whatwegot3,
              };
+             console.log(xyz);
              recentworks.update(xyz,{where:{ID:req.body.id}})     
              .then(menu => {
             

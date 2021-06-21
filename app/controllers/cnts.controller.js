@@ -42,6 +42,7 @@ exports.addaddress = (req, res) => {
       locationLat:"0",
       locationLan:"0",
       phoneNumber:req.body.phoneNumber,
+      status:req.body.status,
       emailAddress:req.body.emailAddress},{where:{ID:req.body.id}
     }).then(showhome => {
   
