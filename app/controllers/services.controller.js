@@ -168,5 +168,17 @@ exports.getservicesbyid= (req, res) => {
             
   });
   }
+  exports.getotherservices=(req,res)=>{
+    
+    sequelize.query("SELECT * FROM inb_blgs AS r1 JOIN (SELECT CEIL(RAND() * (SELECT MAX(ID) FROM inb_blgs)) AS id) AS r2 WHERE r1.id >= r2.id and r1.ID!="+req.body.id+" ORDER BY r1.id ASC LIMIT 3", { type: sequelize.QueryTypes.SELECT})
+    .then(showTicketimage=>{
+     
+      res.send({ message: showTicketimage});
+        })      .catch(err => {
+          res.status(500).send({ message: err.message });
+        });
+   
+  
+   }; 
 
   

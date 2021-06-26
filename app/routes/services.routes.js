@@ -16,6 +16,7 @@ module.exports = function(app) {
     app.post("/api/services/updateservices", services.updateservices);
     app.post("/api/services/updateserviceshtls", services.updateserviceshtls);
     app.post("/api/services/addservicesimage", services.addservicesimage);
+    app.post("/api/services/getotherservices", services.getotherservices);
     
 
 };
