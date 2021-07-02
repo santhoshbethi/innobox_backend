@@ -80,7 +80,7 @@ exports.sendmsg = (req, res) => {
 })
 .then(contactus => {
   let subject = 'Thank you. We have receieved your request';
-  let bodyText = 'Registration';
+  let bodyText = '';
 
 
   var transporter = nodemailer.createTransport({
@@ -98,10 +98,10 @@ exports.sendmsg = (req, res) => {
 
 var mailOptions = {
 from: 'website@innobox.com',
-to: UserId,
+to: req.body.email,
 subject: subject,
 text: bodyText,
-html:"<div style='width:860px; font-family:Ubuntu, sans-serif !important;'><div style='height:101px; border-bottom:1px solid#bbb8b8'><div style='float:left;'><img src='http://bcfevents.in/assets/images/Logo.png'></div><div style='float:right;'></div></div><br><br><div><h1 style='text-align:center;color:#663332;font-size: 2em;'>Thank you for your Registering With Us!</h1></div><center><br><br><br><div style='width:80%;'><br><p style='font-weight:bold;font-size:15px;color:#E47502; '>Hi..,</p><br><p style='font-weight:bold;font-size:15px;color:#E47502; '><p style='font-weight:bold;font-size:15px;color:#E47502; '></p></div><br><br><br><br><div style='clear:both;'></div><div style='width:80%;'> <p style='padding: 30px 5px;font-size: 20px;    font-weight:600;background-color:#F6F5F3;color:#5C442C;border:0px solid #BBB2A9; border-radius:10px;'>If you have any trouble, please contact our support +91 8886123408</p><p style='font-size:14px;font-weight:lighter;line-height:1.4;color:#968e8e;'>This Email is sent by BCF Events <br>@2019,&nbsp;bcfevents.in.&nbsp;&nbsp;All Rights Reserved | <a href='http://bcfevents.in/#/faq'>Privacy Policy.</a></p></div><br><br></center></div>"
+html:"Thank you for reaching us. We will get back to you soon"
 };
 
   transporter.sendMail(mailOptions, function(error, info){
