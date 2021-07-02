@@ -15,7 +15,7 @@ module.exports = function(app) {
     app.get("/api/web/home/getsliderimage", homepage.getsliderimage);
     app.get("/api/web/home/getserviescat", homepage.getserviescat);
     app.get("/api/web/home/careers", homepage.career);
-    app.post("/api/home/careerbyid", homepage.careerbyid);
+    app.post("/api/web/home/careerbyid", homepage.careerbyid);
     app.get("/api/web/home/applicants", homepage.applicants);
     app.get("/api/web/rectwrks/getcat", homepage.getrectwrkcat);
     app.get("/api/web/rectwrks/recentwroks", homepage.getrecentworks);
