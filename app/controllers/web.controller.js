@@ -116,6 +116,19 @@ const highlts=db.hglts;
           res.status(500).send({ message: err.message });
         });
     };
+    exports.careerbyid= (req, res) => {
+      career.findOne({
+        where: {ID: req.body.id}, 
+  
+      }).then(career => {
+  
+          res.status(200).send({ message: career });
+          
+        })
+        .catch(err => {
+          res.status(500).send({ message: err.message });
+        });
+    };
     exports.applicants= (req, res) => {
       jbaptns.findAll({
         where:{status:'0'}
