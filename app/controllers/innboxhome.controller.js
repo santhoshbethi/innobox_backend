@@ -7,13 +7,7 @@ const hmslider = db.homeslider;
 const enqry = db.enqry;
 const staticdata = db.homestdata;
 const blgs = db.blgs;
-var mysql = require('mysql');
-var con = mysql.createConnection({
-  host: "localhost",
-  user: "root",
-  password: "",
-  database: "api"
-});
+
 var multer = require('multer');
 
 var storage = multer.diskStorage({

@@ -22,13 +22,10 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // database
 const db = require("./app/models");
 
+ db.sequelize.sync().then(() => {
 
-db.sequelize.sync();
-// force: true will drop the table if it already exists
-// db.sequelize.sync({force: true}).then(() => {
-//   console.log('Drop and Resync Database with { force: true }');
-//   initial();
-// });
+  initial();
+});
 
 // simple route
 app.get("/", (req, res) => {
@@ -36,6 +33,7 @@ app.get("/", (req, res) => {
 });
 
 // routes	
+require('./app/routes/auth.routes')(app);
 
 require('./app/routes/home.routes')(app);
 require('./app/routes/web.routes')(app);
@@ -45,10 +43,29 @@ require('./app/routes/recentworks.routes')(app);
 require('./app/routes/services.routes')(app);
 
 
-
+const User=db.user;
+var bcrypt = require("bcryptjs");
 
 // set port, listen for requests
 const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}.`);
 });
+function initial() {
+ 
+User.create({
+  username:'admin',
+  email:'admin@innobox.com',
+  password: bcrypt.hashSync('admin@innobox.com', 8),
+});
+User.create({
+  username:'webmaster',
+  email:'webmaster@innobox.com',
+  password: bcrypt.hashSync('admin@innobox.com', 8),
+});
+User.create({
+  username:'HR',
+  email:'hr@innobox.com',
+  password: bcrypt.hashSync('admin@innobox.com', 8),
+});
+}

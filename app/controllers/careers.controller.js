@@ -4,6 +4,7 @@ const emptlk=db.emptlk;
 const careerdesc=db.jbdscr;
 const jbaptns=db.jbaptns;
 var multer  =   require('multer');
+const nodemailer = require('nodemailer');
 
 var storage =   multer.diskStorage({
   destination: function (req, file, callback) {
@@ -170,6 +171,39 @@ exports.apply = (req, res) => {
              };
              jbaptns.create(xyz)      
              .then(menu => {
+              let subject = 'Thank you. We have receieved your request';
+              let bodyText = '';
+            
+            
+              var transporter = nodemailer.createTransport({
+                  service: 'gmail',
+                  host: 'smtp.googlemail.com',
+                  port: 465,
+                  secure: true,
+                  auth: {
+                       user: 'innoboxwebmail@gmail.com',
+                          pass: "!Bx@2019"
+                  }
+                  
+            
+              });
+            
+            var mailOptions = {
+            from: 'website@innobox.com',
+            to: req.body.email,
+            subject: subject,
+            text: bodyText,
+            html:"Thank you for reaching us. We will get back to you soon"
+            };
+            
+              transporter.sendMail(mailOptions, function(error, info){
+                  if (error) {
+                      console.log(error);
+                  } else {
+                      console.log('Email sent: ' + info.response);
+                  }
+              });
+            
             
                 res.send({ message: "Applied  successfully" });
               })
