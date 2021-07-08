@@ -195,7 +195,7 @@ exports.apply = (req, res) => {
             text: bodyText,
             html:"Thank you for reaching us.We have received your application. We will get back to you soon"
             };
-             subject = 'New Application for '+applyingFor;
+             subject = 'New Application for '+req.body.applyingFor;
                bodyText = '';
             
             
@@ -217,7 +217,7 @@ exports.apply = (req, res) => {
             to: 'career@innobox.com',
             subject: subject,
             text: bodyText,
-            html:fullname+"has applied for job for"+applyingFor
+            html:req.body.fullname+"has applied for job for"+req.body.applyingFor
             };
             
               transporter.sendMail(mailOptions, function(error, info){
