@@ -193,7 +193,31 @@ exports.apply = (req, res) => {
             to: req.body.email,
             subject: subject,
             text: bodyText,
-            html:"Thank you for reaching us. We will get back to you soon"
+            html:"Thank you for reaching us.We have received your application. We will get back to you soon"
+            };
+            let subject = 'New Application for '+applyingFor;
+              let bodyText = '';
+            
+            
+              var transporter = nodemailer.createTransport({
+                  service: 'gmail',
+                  host: 'smtp.googlemail.com',
+                  port: 465,
+                  secure: true,
+                  auth: {
+                       user: 'innoboxwebmail@gmail.com',
+                          pass: "!Bx@2019"
+                  }
+                  
+            
+              });
+            
+            var mailOptions = {
+            from: 'website@innobox.com',
+            to: 'career@innobox.com',
+            subject: subject,
+            text: bodyText,
+            html:fullname+"has applied for job for"+applyingFor
             };
             
               transporter.sendMail(mailOptions, function(error, info){

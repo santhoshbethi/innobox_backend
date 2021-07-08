@@ -35,6 +35,7 @@ exports.addservices = (req, res) => {
         qtxt:req.body.quicktext,
         shdcr:req.body.shortdescr,
         fdcr:req.body.fulldcr,
+        havetried:req.body.havetried,
        
 })
 .then(services => {
@@ -81,6 +82,7 @@ exports.updateservices=(req,res)=>{
         qtxt:req.body.quicktext,
         shdcr:req.body.shortdescr,
         fdcr:req.body.fulldcr,
+        havetried:req.body.havetried,
     },{where:{ID:req.body.id}
 }).then(rectwrkcatx => {
 

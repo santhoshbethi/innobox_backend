@@ -23,6 +23,10 @@ module.exports = (sequelize, Sequelize) => {
 			type:Sequelize.STRING(500),
 			comment:"Short description"
 		},
+		havetried:{
+			type:Sequelize.STRING(500),
+			comment:"Have you tried text"
+		},
 		fdcr:{
 			type:Sequelize.TEXT,
 			comment:"Full description"
