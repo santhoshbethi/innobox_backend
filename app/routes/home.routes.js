@@ -39,5 +39,10 @@ module.exports = function(app) {
     app.post("/api/home/updatewhyus", homepage.updatewhyus); 
     app.post("/api/home/addwhyus", homepage.addwhyus);
 
+    app.get("/api/home/getemptlk", homepage.getemptlk);
+    app.post("/api/home/updateemptlk", homepage.updateemptlk); 
+    app.post("/api/home/addemptlk", homepage.addemptlk);
+
+
 
 };

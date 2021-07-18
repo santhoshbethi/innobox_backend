@@ -8,6 +8,7 @@ const enqry = db.enqry;
 const staticdata = db.homestdata;
 const whyinb=db.whyinb;
 const blgs = db.blgs;
+const emptlk=db.emptlk;
 const whyus=db.whyus;
 
 var multer = require('multer');
@@ -472,6 +473,54 @@ exports.frontmenu = (req, res) => {
       title: req.body.title,
       content: req.body.content,
       category: req.body.category,
+     
+     }, {
+      where: { ID: req.body.id }
+    }).then(tstmnls => {
+  
+      res.status(200).send({ message: tstmnls });
+  
+    })
+      .catch(err => {
+        res.status(500).send({ message: err.message });
+      });
+  
+  };
+
+
+  exports.addemptlk = (req, res) => {
+    emptlk.create({
+      name: req.body.name,
+      message: req.body.message,
+     
+  
+    })
+      .then(tstmnls => {
+  
+        res.send({ message: "success" });
+      })
+      .catch(err => {
+        res.status(500).send({ message: err.message });
+      });
+  };
+  
+  exports.getemptlk = (req, res) => {
+    emptlk.findAll({
+  
+    }).then(tstmnls => {
+  
+      res.status(200).send({ message: tstmnls });
+  
+    })
+      .catch(err => {
+        res.status(500).send({ message: err.message });
+      });
+  };
+  exports.updateemptlk = (req, res) => { 
+  
+    emptlk.update({ status: req.body.status,
+      name: req.body.name,
+      message: req.body.message,
      
      }, {
       where: { ID: req.body.id }

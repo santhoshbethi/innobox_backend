@@ -189,7 +189,7 @@ exports.apply = (req, res) => {
               });
             
             var mailOptions = {
-            from: 'website@innobox.com',
+            from: 'careers@innobox.com',
             to: req.body.email,
             subject: subject,
             text: bodyText,
@@ -199,11 +199,12 @@ exports.apply = (req, res) => {
                bodyText = '';           
         
             var mailOptions1 = {
-            from: 'website@innobox.com',
+            from: req.body.email+ '<'+req.body.email+'>',
             to: 'career@innobox.com',
             subject: subject,
             text: bodyText,
-            html:req.body.fullname +"has applied for job for"+req.body.applyingFor
+            html: "Name :" +req.body.fullname + "<br> Email: "+req.body.email +"<br> Mobile: "+req.body.mobile +"<br> Position" +req.body.applyingFor ,
+            attachments: files
             };
             transporter.sendMail(mailOptions1, function(error, info){
               if (error) {
