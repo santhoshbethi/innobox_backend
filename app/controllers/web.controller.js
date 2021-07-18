@@ -17,6 +17,8 @@ const rectwrkcat=db.rcntwcat;
 const recentworks=db.recentworks;
 const jbaptns=db.jbaptns;
 const services=db.blgs;
+const whyinb=db.whyinb;
+
 
 const highlts=db.hglts;
 
@@ -239,6 +241,18 @@ const highlts=db.hglts;
        })    
          
         })
+        .catch(err => {
+          res.status(500).send({ message: err.message });
+        });
+    };
+    exports.getwhyinb = (req, res) => {
+      whyinb.findAll({
+        where:{status:'0'}
+      }).then(tstmnls => {
+    
+        res.status(200).send({ message: tstmnls });
+    
+      })
         .catch(err => {
           res.status(500).send({ message: err.message });
         });

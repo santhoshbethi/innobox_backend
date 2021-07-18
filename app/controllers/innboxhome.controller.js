@@ -6,7 +6,9 @@ const contus = db.cntus;
 const hmslider = db.homeslider;
 const enqry = db.enqry;
 const staticdata = db.homestdata;
+const whyinb=db.whyinb;
 const blgs = db.blgs;
+const whyus=db.whyus;
 
 var multer = require('multer');
 
@@ -180,7 +182,7 @@ exports.addtestimonials = (req, res) => {
   tstmnls.create({
     rank: req.body.rank,
     content: req.body.content,
-    customerName: req.body.name,
+    customerName: req.body.customerName,
 
   })
     .then(tstmnls => {
@@ -204,8 +206,13 @@ exports.gettestmnls = (req, res) => {
       res.status(500).send({ message: err.message });
     });
 };
-exports.updatetestimonialsstatus = (req, res) => {
-  tstmnls.update({ status: req.body.status }, {
+exports.updatetestimonials = (req, res) => { 
+
+  tstmnls.update({ status: req.body.status,
+    rank: req.body.rank,
+    content: req.body.content,
+    customerName: req.body.customerName
+   }, {
     where: { ID: req.body.id }
   }).then(tstmnls => {
 
@@ -216,6 +223,19 @@ exports.updatetestimonialsstatus = (req, res) => {
       res.status(500).send({ message: err.message });
     });
 
+};
+exports.tstmbyid= (req, res) => {
+  tstmnls.findOne({
+    where: {ID: req.body.id}, 
+
+  }).then(career => {
+
+      res.status(200).send({ message: career });
+      
+    })
+    .catch(err => {
+      res.status(500).send({ message: err.message });
+    });
 };
 
 
@@ -369,3 +389,99 @@ exports.frontmenu = (req, res) => {
     }
     return roots;
   }
+
+  exports.addwhyinb = (req, res) => {
+    whyinb.create({
+      title: req.body.title,
+      content: req.body.content,
+     
+  
+    })
+      .then(tstmnls => {
+  
+        res.send({ message: "success" });
+      })
+      .catch(err => {
+        res.status(500).send({ message: err.message });
+      });
+  };
+  
+  exports.getwhyinb = (req, res) => {
+    whyinb.findAll({
+  
+    }).then(tstmnls => {
+  
+      res.status(200).send({ message: tstmnls });
+  
+    })
+      .catch(err => {
+        res.status(500).send({ message: err.message });
+      });
+  };
+  exports.updatewhyinb = (req, res) => { 
+  
+    whyinb.update({ status: req.body.status,
+      title: req.body.title,
+      content: req.body.content,
+     
+     }, {
+      where: { ID: req.body.id }
+    }).then(tstmnls => {
+  
+      res.status(200).send({ message: tstmnls });
+  
+    })
+      .catch(err => {
+        res.status(500).send({ message: err.message });
+      });
+  
+  };
+
+  exports.addwhyus = (req, res) => {
+    whyus.create({
+      title: req.body.title,
+      content: req.body.content,
+      category: req.body.category,
+     
+  
+    })
+      .then(tstmnls => {
+  
+        res.send({ message: "success" });
+      })
+      .catch(err => {
+        res.status(500).send({ message: err.message });
+      });
+  };
+  
+  exports.getwhyus = (req, res) => {
+    whyus.findAll({
+  
+    }).then(tstmnls => {
+  
+      res.status(200).send({ message: tstmnls });
+  
+    })
+      .catch(err => {
+        res.status(500).send({ message: err.message });
+      });
+  };
+  exports.updatewhyus = (req, res) => { 
+  
+    whyus.update({ status: req.body.status,
+      title: req.body.title,
+      content: req.body.content,
+      category: req.body.category,
+     
+     }, {
+      where: { ID: req.body.id }
+    }).then(tstmnls => {
+  
+      res.status(200).send({ message: tstmnls });
+  
+    })
+      .catch(err => {
+        res.status(500).send({ message: err.message });
+      });
+  
+  };

@@ -43,6 +43,9 @@ db.rcntwcat = require("../models/inb_rcntwcat.model.js")(sequelize, Sequelize);
 db.ctspage = require("../models/inb_ctspage.model.js")(sequelize, Sequelize);
 db.recentworks = require("../models/inb_rctwrks.model.js")(sequelize, Sequelize);
 db.homestdata = require("../models/inb_homepagestaticdata.model.js")(sequelize, Sequelize);
+db.whyinb = require("../models/inb_whyinb.model.js")(sequelize, Sequelize);
+db.whyus = require("../models/inb_whyus.model.js")(sequelize, Sequelize);
+
 
 db.user = require("../models/user.model.js")(sequelize, Sequelize);
 

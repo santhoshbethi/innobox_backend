@@ -19,9 +19,11 @@ module.exports = function(app) {
     app.get("/api/web/home/applicants", homepage.applicants);
     app.get("/api/web/rectwrks/getcat", homepage.getrectwrkcat);
     app.get("/api/web/rectwrks/recentwroks", homepage.getrecentworks);
+   
     app.post("/api/web/rectwrks/recentwroksbyid", homepage.getrecentworksbyid);
 
     app.get("/api/web/services/getservices", homepage.getservices);
+    app.get("/api/web/home/getwhyinb", homepage.getwhyinb);
     app.post("/api/web/services/getservicesbyid", homepage.getservicesbyid);
     app.post("/api/web/services/getserviceshighlights", homepage.getserviceshtls);
   
