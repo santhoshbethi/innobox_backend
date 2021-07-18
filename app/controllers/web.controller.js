@@ -18,6 +18,8 @@ const recentworks=db.recentworks;
 const jbaptns=db.jbaptns;
 const services=db.blgs;
 const whyinb=db.whyinb;
+const emptlk=db.emptlk;
+const whyus=db.whyus;
 
 
 const highlts=db.hglts;
