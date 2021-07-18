@@ -3,7 +3,7 @@ const contactus=db.cntus;
 const menu = db.mnbar;
 const msg=db.msg;
 const career=db.career;
-const emptlk=db.emptlk;
+
 const careerdesc=db.jbdscr;
 const tstmnls = db.tsmnals;
 const sequelize = db.sequelize;
