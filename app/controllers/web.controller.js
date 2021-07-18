@@ -257,3 +257,27 @@ const highlts=db.hglts;
           res.status(500).send({ message: err.message });
         });
     };
+    exports.getwhyus = (req, res) => {
+      whyus.findAll({
+        where:{status:'0'}
+      }).then(tstmnls => {
+    
+        res.status(200).send({ message: tstmnls });
+    
+      })
+        .catch(err => {
+          res.status(500).send({ message: err.message });
+        });
+    };
+    exports.getemptlk = (req, res) => {
+      emptlk.findAll({
+        where:{status:'0'}
+      }).then(tstmnls => {
+    
+        res.status(200).send({ message: tstmnls });
+    
+      })
+        .catch(err => {
+          res.status(500).send({ message: err.message });
+        });
+    };

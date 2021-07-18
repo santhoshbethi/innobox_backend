@@ -26,6 +26,8 @@ module.exports = function(app) {
     app.get("/api/web/home/getwhyinb", homepage.getwhyinb);
     app.post("/api/web/services/getservicesbyid", homepage.getservicesbyid);
     app.post("/api/web/services/getserviceshighlights", homepage.getserviceshtls);
+    app.get("/api/home/getwhyus", homepage.getwhyus);
+    app.get("/api/home/getemptlk", homepage.getemptlk);
   
 
 
