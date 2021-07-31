@@ -267,8 +267,8 @@ exports.addstaticdata = (req, res) => {
   
     var xyz = {
       title: req.body.title,
-      value: fileval,
-      type: req.body.type
+      value: req.body.value,
+     
 
     };
     staticdata.create(xyz)
