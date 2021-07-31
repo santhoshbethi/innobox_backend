@@ -12,12 +12,9 @@ module.exports = (sequelize, Sequelize) => {
 		},
 		value:{
 			type: Sequelize.STRING,
-			comment:"menu Id"
+			comment:"value "
 		},
-      value:{
-		type: Sequelize.STRING,
-		comment:"Enter Value"
-	  },
+      
 		
 			status:{
 				type:Sequelize.STRING,
@@ -29,7 +26,7 @@ module.exports = (sequelize, Sequelize) => {
 	   freezeTableName: true,
 	   timestamps:false
   });
-  return inb_stcdata;
+  return inb_stcdataact;
 };
  
  
