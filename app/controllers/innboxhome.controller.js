@@ -5,6 +5,7 @@ const menu = db.mnbar;
 const contus = db.cntus;
 const hmslider = db.homeslider;
 const enqry = db.enqry;
+
 const staticdata = db.homestdata;
 const whyinb=db.whyinb;
 const blgs = db.blgs;
@@ -33,9 +34,6 @@ exports.addsliderimage = (req, res) => {
       var fileval = '/home/' + req.file.filename;
     }
   
-    
-    console.log(fileval);
-    console.log("test");
     var xyz = {
       title: req.body.title,
       text: req.body.text,
@@ -67,7 +65,8 @@ exports.updatesliderimage = (req, res) => {
     var xyz = {
       title: req.body.title,
       text: req.body.text,
-      path: fileval
+      path: fileval,
+      status:req.body.status,
 
     };
 
@@ -288,10 +287,7 @@ exports.updatestaticdata = (req, res) => {
     if (err) {
       return res.send(err);
     }
-    if (req.file) {
-      var fileval = '/home/' + req.file.filename;
-    }
-    
+      
 
     var xyz = {
       title: req.body.title,

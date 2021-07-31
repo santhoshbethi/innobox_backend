@@ -1,5 +1,5 @@
 module.exports = (sequelize, Sequelize) => {
-	const inb_stcdata = sequelize.define("inb_stcdata", {
+	const inb_stcdataact = sequelize.define("inb_stcdataact", {
     ID: {
       type: Sequelize.INTEGER,
       autoIncrement:true,
@@ -14,9 +14,9 @@ module.exports = (sequelize, Sequelize) => {
 			type: Sequelize.STRING,
 			comment:"menu Id"
 		},
-      type:{
+      value:{
 		type: Sequelize.STRING,
-		comment:"input type -> image-i or text-t"
+		comment:"Enter Value"
 	  },
 		
 			status:{
