@@ -6,7 +6,7 @@ const contus = db.cntus;
 const hmslider = db.homeslider;
 const enqry = db.enqry;
 
-const staticdata = db.homestdata;
+const staticdata = db.inb_stcdataact;
 const whyinb=db.whyinb;
 const blgs = db.blgs;
 const emptlk=db.emptlk;
