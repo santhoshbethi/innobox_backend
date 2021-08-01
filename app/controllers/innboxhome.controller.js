@@ -11,6 +11,8 @@ const whyinb=db.whyinb;
 const blgs = db.blgs;
 const emptlk=db.emptlk;
 const whyus=db.whyus;
+const abtus=db.abtus;
+const topimg=db.topimage;
 
 var multer = require('multer');
 
@@ -320,6 +322,71 @@ exports.getstaticdata = (req, res) => {
     });
 };
 
+
+exports.addabtus = (req, res) => {
+  upload(req, res, function (err) {
+    if (err) {
+      return res.send(err);
+    }
+    if (req.file) {
+      var fileval = '/home/' + req.file.filename;
+    }
+  
+    var xyz = {
+      title: req.body.title,
+      value: req.body.value,
+     
+
+    };
+    abtus.create(xyz)
+      .then(menu => {
+
+        res.send({ message: "data successfully" });
+      })
+      .catch(err => {
+        res.status(500).send({ message: err.message });
+      });
+
+  });
+}
+exports.updateabtus = (req, res) => {
+  upload(req, res, function (err) {
+    if (err) {
+      return res.send(err);
+    }
+      
+
+    var xyz = {
+      title: req.body.title,
+      value: fileval,
+      type: req.body.type
+
+    };
+
+    abtus.update(xyz, { where: { ID: req.body.id } })
+      .then(menu => {
+
+        res.send({ message: "Slider successfully" });
+      })
+      .catch(err => {
+        res.status(500).send({ message: err.message });
+      });
+
+  });
+}
+exports.getabtus = (req, res) => {
+  abtus.findAll({
+
+  }).then(slider => {
+
+    res.status(200).send({ message: slider });
+
+  })
+    .catch(err => {
+      res.status(500).send({ message: err.message });
+    });
+};
+
 exports.getserviescat = (req, res) => {
   blgs.findAll({
     attributes: ['ID', 'title', 'image1', 'qtxt', 'shdcr']
@@ -530,3 +597,73 @@ exports.frontmenu = (req, res) => {
       });
   
   };
+
+  exports.addtopimg = (req, res) => {
+    upload(req, res, function (err) {
+      if (err) {
+        return res.send(err);
+      }
+      if (req.file) {
+        var fileval = '/home/' + req.file.filename;
+      }
+    
+      var xyz = {
+        title: req.body.title,
+        text: req.body.text,
+        path: fileval
+  
+      };
+      topimg.create(xyz)
+        .then(menu => {
+  
+          res.send({ message: "Slider successfully" });
+        })
+        .catch(err => {
+          res.status(500).send({ message: err.message });
+        });
+  
+    });
+  }
+  exports.updatetopimg = (req, res) => {
+    upload(req, res, function (err) {
+      if (err) {
+        return res.send(err);
+      }
+      if (req.file) {
+        var fileval = '/home/' + req.file.filename;
+      }
+      
+      console.log(fileval);
+      console.log("test");
+      var xyz = {
+        title: req.body.title,
+        text: req.body.text,
+        path: fileval,
+        status:req.body.status,
+  
+      };
+  
+      topimg.update(xyz, { where: { ID: req.body.id } })
+        .then(menu => {
+  
+          res.send({ message: "Slider successfully" });
+        })
+        .catch(err => {
+          res.status(500).send({ message: err.message });
+        });
+  
+    });
+  }
+  exports.gettopimg = (req, res) => {
+    topimg.findAll({
+  
+    }).then(slider => {
+  
+      res.status(200).send({ message: slider });
+  
+    })
+      .catch(err => {
+        res.status(500).send({ message: err.message });
+      });
+  };
+  

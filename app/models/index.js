@@ -44,7 +44,10 @@ db.ctspage = require("../models/inb_ctspage.model.js")(sequelize, Sequelize);
 db.recentworks = require("../models/inb_rctwrks.model.js")(sequelize, Sequelize);
 db.inb_stcdataact = require("../models/inb_homepagestaticdataact.model.js")(sequelize, Sequelize);
 db.whyinb = require("../models/inb_whyinb.model.js")(sequelize, Sequelize);
+db.abtus = require("../models/inb_aboutus.model.js")(sequelize, Sequelize);
 db.whyus = require("../models/inb_whyus.model.js")(sequelize, Sequelize);
+db.topimage = require("../models/inb_topimg.model.js")(sequelize, Sequelize);
+
 
 
 db.user = require("../models/user.model.js")(sequelize, Sequelize);

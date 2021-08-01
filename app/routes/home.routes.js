@@ -29,6 +29,14 @@ module.exports = function(app) {
     app.post("/api/home/updatestaticdata", homepage.updatestaticdata);
     app.get("/api/home/getstaticdata", homepage.getstaticdata);
 
+    app.post("/api/home/addabtus", homepage.addabtus);
+    app.post("/api/home/updateabtus", homepage.updateabtus);
+    app.get("/api/home/getabtus", homepage.getabtus);
+
+    app.post("/api/home/addtopimg", homepage.addtopimg);
+    app.post("/api/home/updatetopimg", homepage.updatetopimg);
+    app.get("/api/home/gettopimg", homepage.gettopimg);
+
 
     app.get("/api/home/getwhyinb", homepage.getwhyinb);
     app.post("/api/home/updatewhyinb", homepage.updatewhyinb); 
