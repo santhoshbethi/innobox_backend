@@ -293,8 +293,8 @@ exports.updatestaticdata = (req, res) => {
 
     var xyz = {
       title: req.body.title,
-      value: fileval,
-      type: req.body.type
+     
+      value: req.body.value
 
     };
 
@@ -358,8 +358,8 @@ exports.updateabtus = (req, res) => {
 
     var xyz = {
       title: req.body.title,
-      value: fileval,
-      type: req.body.type
+     
+      value: req.body.value
 
     };
 
