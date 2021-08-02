@@ -293,7 +293,7 @@ exports.updatestaticdata = (req, res) => {
 
     var xyz = {
       title: req.body.title,
-     
+     status:req.body.status,
       value: req.body.value
 
     };
@@ -358,7 +358,7 @@ exports.updateabtus = (req, res) => {
 
     var xyz = {
       title: req.body.title,
-     
+     status:req.body.status,
       value: req.body.value
 
     };
