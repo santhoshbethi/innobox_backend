@@ -508,7 +508,7 @@ exports.frontmenu = (req, res) => {
            if(req.file)
            {
        
-             var fileval='/careers/'+req.file.filename;
+             var fileval='/home/'+req.file.filename;
            }
            
            var xyz={
@@ -550,7 +550,7 @@ exports.frontmenu = (req, res) => {
            }   
            if(req.file)
            {
-             var fileval='/careers/'+req.file.filename;
+             var fileval='/home/'+req.file.filename;
            }
            var xyz={
       status:req.body.status, 
