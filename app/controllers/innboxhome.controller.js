@@ -561,7 +561,7 @@ exports.frontmenu = (req, res) => {
            
             
                };
-              
+              console.log(xyz);
             
                whyus.update(xyz,{where:{ID:req.body.id}})     
   
