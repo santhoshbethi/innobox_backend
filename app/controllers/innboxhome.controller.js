@@ -502,13 +502,24 @@ exports.frontmenu = (req, res) => {
   };
 
   exports.addwhyus = (req, res) => {
-    whyus.create({
-      title: req.body.title,
-      content: req.body.content,
-      category: req.body.category,
-     
+    upload(req,res,function(err) {
+      if(err) {
+           return res.send(err);
+           }   
+           if(req.file)
+           {
+             var fileval='/careers/'+req.file.filename;
+           }
+           var xyz={
+            title: req.body.title,
+            content: req.body.content,
+            category: req.body.category,
+            path:fileval,   
+         
+               };
+               whyus.create(xyz)     
+
   
-    })
       .then(tstmnls => {
   
         res.send({ message: "success" });
@@ -516,7 +527,8 @@ exports.frontmenu = (req, res) => {
       .catch(err => {
         res.status(500).send({ message: err.message });
       });
-  };
+    });
+  }
   
   exports.getwhyus = (req, res) => {
     whyus.findAll({
@@ -531,15 +543,29 @@ exports.frontmenu = (req, res) => {
       });
   };
   exports.updatewhyus = (req, res) => { 
+    upload(req,res,function(err) {
+      if(err) {
+           return res.send(err);
+           }   
+           if(req.file)
+           {
+             var fileval='/careers/'+req.file.filename;
+           }
+           var xyz={
+      status:req.body.status, 
+          
+            title: req.body.title,
+            content: req.body.content,
+            category: req.body.category,
+            path:fileval,   
+           
+            
+               };
+              
+            
+               whyus.update(xyz,{where:{ID:req.body.id}})     
   
-    whyus.update({ status: req.body.status,
-      title: req.body.title,
-      content: req.body.content,
-      category: req.body.category,
-     
-     }, {
-      where: { ID: req.body.id }
-    }).then(tstmnls => {
+.then(tstmnls => {
   
       res.status(200).send({ message: tstmnls });
   
@@ -547,8 +573,9 @@ exports.frontmenu = (req, res) => {
       .catch(err => {
         res.status(500).send({ message: err.message });
       });
+    });
   
-  };
+  }
 
 
   exports.addemptlk = (req, res) => {
