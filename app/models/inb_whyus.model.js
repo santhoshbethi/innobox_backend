@@ -16,6 +16,11 @@ module.exports = (sequelize, Sequelize) => {
 			
 			comment:"title"
 		},
+		path:{
+			type: Sequelize.STRING(255),
+			
+			comment:"certification image"
+		},
 		content:{
 			type: Sequelize.STRING(150),
 			

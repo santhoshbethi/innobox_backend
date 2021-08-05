@@ -62,8 +62,7 @@ exports.updatesliderimage = (req, res) => {
       var fileval = '/home/' + req.file.filename;
     }
     
-    console.log(fileval);
-    console.log("test");
+   
     var xyz = {
       title: req.body.title,
       text: req.body.text,
@@ -242,7 +241,7 @@ exports.tstmbyid= (req, res) => {
 
 
 exports.hmpcontactus = (req, res) => {
-  console.log(req.body.name);
+ 
   enqry.create({
     Name: req.body.name,
     email: req.body.email,
@@ -418,7 +417,7 @@ exports.frontmenu = (req, res) => {
       for (i = 0; i < list.length; i += 1) {
        
         node = list[i];
-        console.log(node);
+ 
         if (node.refID !== "0") {
          
           list[map[node.refID]].children.push(node);
@@ -508,8 +507,10 @@ exports.frontmenu = (req, res) => {
            }   
            if(req.file)
            {
+       
              var fileval='/careers/'+req.file.filename;
            }
+           
            var xyz={
             title: req.body.title,
             content: req.body.content,
@@ -561,7 +562,7 @@ exports.frontmenu = (req, res) => {
            
             
                };
-              console.log(xyz);
+            
             
                whyus.update(xyz,{where:{ID:req.body.id}})     
   
@@ -660,8 +661,7 @@ exports.frontmenu = (req, res) => {
         var fileval = '/home/' + req.file.filename;
       }
       
-      console.log(fileval);
-      console.log("test");
+  
       var xyz = {
         title: req.body.title,
         text: req.body.text,
