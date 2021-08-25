@@ -200,11 +200,14 @@ exports.apply = (req, res) => {
         
             var mailOptions1 = {
             from: req.body.email+ '<'+req.body.email+'>',
-            to: 'career@innobox.com',
+          //  to: 'career@innobox.com',
+          to:'santhosh.bhethi@gmail.com',
             subject: subject,
             text: bodyText,
             html: "Name :" +req.body.fullname + "<br> Email: "+req.body.email +"<br> Mobile: "+req.body.mobile +"<br> Position" +req.body.applyingFor ,
-            attachments: files
+            attachments: [{
+              filename:req.file.filename,path:'/careers/apply/'+req.file.filename
+            }]
             };
             transporter.sendMail(mailOptions1, function(error, info){
               if (error) {
