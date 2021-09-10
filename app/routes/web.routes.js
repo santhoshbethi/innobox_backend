@@ -28,6 +28,8 @@ module.exports = function(app) {
     app.post("/api/web/services/getserviceshighlights", homepage.getserviceshtls);
     app.get("/api/web/home/getwhyus", homepage.getwhyus);
     app.get("/api/web/home/getemptlk", homepage.getemptlk);
+    app.get("/api/web/home/getsocial", homepage.getsocial);
+    app.post("/api/web/home/updatesocial", homepage.updatesocial);
   
 
 

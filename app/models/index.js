@@ -47,6 +47,7 @@ db.whyinb = require("../models/inb_whyinb.model.js")(sequelize, Sequelize);
 db.abtus = require("../models/inb_aboutus.model.js")(sequelize, Sequelize);
 db.whyus = require("../models/inb_whyus.model.js")(sequelize, Sequelize);
 db.topimage = require("../models/inb_topimg.model.js")(sequelize, Sequelize);
+db.social = require("../models/inb_socialmedia.model.js")(sequelize, Sequelize);
 
 
 

@@ -44,6 +44,7 @@ require('./app/routes/services.routes')(app);
 
 
 const User=db.user;
+const Social=db.social;
 var bcrypt = require("bcryptjs");
 
 // set port, listen for requests
@@ -67,5 +68,21 @@ User.create({
   username:'HR',
   email:'hr@innobox.com',
   password: bcrypt.hashSync('admin@innobox.com', 8),
+});
+Social.create({
+  title='facebook',
+  value='www.facebook.com',
+});
+Social.create({
+  title='insta',
+  value='www.insta.com',
+});
+Social.create({
+  title='twitter',
+  value='www.twitter.com',
+});
+Social.create({
+  title='linkdin',
+  value='www.linkdin.com',
 });
 }

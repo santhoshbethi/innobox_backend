@@ -3,7 +3,7 @@ const contactus=db.cntus;
 const menu = db.mnbar;
 const msg=db.msg;
 const career=db.career;
-
+const social=db.social;
 const careerdesc=db.jbdscr;
 const tstmnls = db.tsmnals;
 const sequelize = db.sequelize;
@@ -282,4 +282,35 @@ const highlts=db.hglts;
         .catch(err => {
           res.status(500).send({ message: err.message });
         });
+    };
+    exports.getsocial=(req,res)=>{
+      social.findAll({
+    
+      }).then(tstmnls => {
+    
+        res.status(200).send({ message: tstmnls });
+    
+      })
+        .catch(err => {
+          res.status(500).send({ message: err.message });
+        });
+
+    };
+    exports.updatesocial=(req,res)=>{
+        
+      social.update({    
+        title:req.body.title,
+    
+        status:req.body.status,
+        value:req.body.value},{where:{ID:req.body.id}
+      }).then(showhome => {
+    
+        res.status(200).send({ message: showhome });
+        
+      })
+      .catch(err => {
+        res.status(500).send({ message: err.message });
+      });
+    
+
     };
